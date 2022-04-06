@@ -4437,6 +4437,20 @@
           <is_null_allowed>true</is_null_allowed>
           <tracking_level>all</tracking_level>
         </field>
+        <field id="loadbalancer_sku" xsi:type="AttributeString">
+          <sql>loadbalancer_sku</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="outbound_type" xsi:type="AttributeString">
+          <sql>outbound_type</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -4521,6 +4535,12 @@
                     </item>
                     <item id="max_agent_pools">
                       <rank>30</rank>
+                    </item>
+                    <item id="loadbalancer_sku">
+                      <rank>40</rank>
+                    </item>
+                    <item id="outbound_type">
+                      <rank>50</rank>
                     </item>
                   </items>
                   <rank>20</rank>
@@ -4762,6 +4782,35 @@
           <validation_pattern/>
           <tracking_level>all</tracking_level>
         </field>
+        <field id="type" xsi:type="AttributeEnumSet">
+          <sql>type</sql>
+          <values>
+            <value id="web">
+              <code>web</code>
+            </value>
+            <value id="dfs">
+              <code>dfs</code>
+            </value>
+            <value id="blob">
+              <code>blob</code>
+            </value>
+            <value id="file">
+              <code>file</code>
+            </value>
+            <value id="queue">
+              <code>queue</code>
+            </value>
+            <value id="table">
+              <code>table</code>
+            </value>
+          </values>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>list</display_style>
+          <max_items>4</max_items>
+          <dependencies/>
+          <tracking_level>all</tracking_level>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -4843,6 +4892,9 @@
                   <items>
                     <item id="tier">
                       <rank>10</rank>
+                    </item>
+                    <item id="type">
+                      <rank>20</rank>
                     </item>
                   </items>
                   <rank>20</rank>
@@ -5026,6 +5078,22 @@
           <extkey_attcode>osfamily_id</extkey_attcode>
           <target_attcode>name</target_attcode>
         </field>
+        <field id="encryption" xsi:type="AttributeEnum">
+          <sql>encryption</sql>
+          <values>
+            <value id="enabled">
+              <code>enabled</code>
+            </value>
+            <value id="disabled">
+              <code>disabled</code>
+            </value>
+          </values>
+          <default_value>disabled</default_value>
+          <is_null_allowed>false</is_null_allowed>
+          <display_style>list</display_style>
+          <dependencies/>
+          <tracking_level>all</tracking_level>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -5123,7 +5191,10 @@
                     <item id="sku">
                       <rank>40</rank>
                     </item>
-                  </items>
+                    <item id="encryption">
+                      <rank>50</rank>
+                    </item>
+                 </items>
                   <rank>20</rank>
                 </item>
               </items>
