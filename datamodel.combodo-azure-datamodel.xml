@@ -296,31 +296,31 @@
                     <item id="name">
                       <rank>10</rank>
                     </item>
-                    <item id="org_id">
+                    <item id="tenantid">
                       <rank>20</rank>
                     </item>
-                    <item id="status">
+                    <item id="org_id">
                       <rank>30</rank>
                     </item>
-                    <item id="business_criticity">
+                    <item id="status">
                       <rank>40</rank>
+                    </item>
+                    <item id="business_criticity">
+                      <rank>50</rank>
                     </item>
                   </items>
                   <rank>10</rank>
                 </item>
                 <item id="fieldset:AzureTenant:moreinfo">
                   <items>
-                    <item id="tenantid">
+                    <item id="type">
                       <rank>10</rank>
                     </item>
-                    <item id="type">
+                    <item id="domain">
                       <rank>20</rank>
                     </item>
-                    <item id="domain">
-                      <rank>30</rank>
-                    </item>
                     <item id="country">
-                      <rank>40</rank>
+                      <rank>30</rank>
                     </item>
                   </items>
                   <rank>20</rank>
@@ -699,7 +699,6 @@
           <target_class>Location</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>Location</label>
           <description/>
         </field>
         <field id="location_name" xsi:type="AttributeExternalField">
@@ -746,7 +745,6 @@
           <target_class>AzureSubscription</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>Subscription</label>
         </field>
         <field id="azuresubscription_name" xsi:type="AttributeExternalField">
           <extkey_attcode>azuresubscription_id</extkey_attcode>
@@ -921,10 +919,10 @@
                     <item id="move2production">
                       <rank>20</rank>
                     </item>
-                    <item id="azureid">
+                    <item id="description">
                       <rank>30</rank>
                     </item>
-                    <item id="description">
+                    <item id="azureid">
                       <rank>40</rank>
                     </item>
                   </items>
@@ -1159,7 +1157,6 @@
           <target_class>Location</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>Location</label>
           <description/>
         </field>
         <field id="status" xsi:type="AttributeEnum">
@@ -2742,36 +2739,16 @@
           <target_class>OSFamily</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>OS family</label>
         </field>
         <field id="osfamily_name" xsi:type="AttributeExternalField">
           <extkey_attcode>osfamily_id</extkey_attcode>
           <target_attcode>name</target_attcode>
-        </field>
-        <field id="azurevmsize_id" xsi:type="AttributeExternalKey">
-          <sql>azurevmsize_id</sql>
-          <filter/>
-          <dependencies/>
-          <is_null_allowed>true</is_null_allowed>
-          <target_class>AzureVMSize</target_class>
-          <on_target_delete>DEL_AUTO</on_target_delete>
-          <tracking_level>all</tracking_level>
-          <label>Size (link)</label>
-        </field>
-        <field id="azurevmsize_core_number" xsi:type="AttributeExternalField">
-          <extkey_attcode>azurevmsize_id</extkey_attcode>
-          <target_attcode>core_number</target_attcode>
-        </field>
-        <field id="azurevmsize_memory" xsi:type="AttributeExternalField">
-          <extkey_attcode>azurevmsize_id</extkey_attcode>
-          <target_attcode>memory</target_attcode>
         </field>
         <field id="azurenics_list" xsi:type="AttributeLinkedSet">
           <linked_class>AzureNetworkInterface</linked_class>
           <ext_key_to_me>azurevirtualmachine_id</ext_key_to_me>
           <tracking_level>list</tracking_level>
           <edit_mode>add_remove</edit_mode>
-          <label>Interfaces réseaux</label>
         </field>
         <field id="softwareinstances_list" xsi:type="AttributeLinkedSetIndirect">
           <ext_key_to_me>azurevirtualmachine_id</ext_key_to_me>
@@ -2780,14 +2757,12 @@
           <count_min>0</count_min>
           <count_max>0</count_max>
           <duplicates>false</duplicates>
-          <label>Instances logiciels</label>
         </field>
         <field id="azurevmdisks_list" xsi:type="AttributeLinkedSet">
           <linked_class>AzureDisk</linked_class>
           <ext_key_to_me>azurevirtualmachine_id</ext_key_to_me>
           <tracking_level>list</tracking_level>
           <edit_mode>add_remove</edit_mode>
-          <label>Disques</label>
         </field>
         <field id="osversion" xsi:type="AttributeString">
           <sql>osversion</sql>
@@ -2891,15 +2866,6 @@
                     <item id="azurevmsize">
                       <rank>30</rank>
                     </item>
-                    <item id="azurevmsize_id">
-                      <rank>40</rank>
-                    </item>
-                    <item id="azurevmsize_core_number">
-                      <rank>50</rank>
-                    </item>
-                    <item id="azurevmsize_memory">
-                      <rank>60</rank>
-                    </item>
                   </items>
                   <rank>20</rank>
                 </item>
@@ -2976,6 +2942,78 @@
             </item>
           </items>
         </default_search>
+      </presentation>
+    </class>
+    <class id="lnkAzureVirtualMachineToSoftwareInstance" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <properties>
+        <category>bizmodel</category>
+        <abstract>false</abstract>
+        <db_table>lnkazurevirtualmachinetosoftwareinstance</db_table>
+        <is_link>1</is_link>
+        <naming>
+          <attributes>
+            <attribute id="softwareinstance_id"/>
+            <attribute id="azurevirtualmachine_id"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="softwareinstance_id"/>
+            <attribute id="azurevirtualmachine_id"/>
+          </attributes>
+        </reconciliation>
+      </properties>
+      <fields>
+        <field id="softwareinstance_id" xsi:type="AttributeExternalKey">
+          <sql>softwareinstance_id</sql>
+          <filter/>
+          <dependencies/>
+          <is_null_allowed>false</is_null_allowed>
+          <target_class>SoftwareInstance</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+        <field id="azurevirtualmachine_id" xsi:type="AttributeExternalKey">
+          <sql>azurevirtualmachine_id</sql>
+          <filter/>
+          <dependencies/>
+          <is_null_allowed>false</is_null_allowed>
+          <target_class>AzureVirtualMachine</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list>
+          <items>
+            <item id="softwareinstance_id">
+              <rank>10</rank>
+            </item>
+            <item id="azurevirtualmachine_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="softwareinstance_id">
+              <rank>10</rank>
+            </item>
+            <item id="azurevirtualmachine_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </search>
+        <details>
+          <items>
+            <item id="softwareinstance_id">
+              <rank>10</rank>
+            </item>
+            <item id="azurevirtualmachine_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </details>
       </presentation>
     </class>
     <class id="AzureNetworking" _delta="define">
@@ -3237,7 +3275,7 @@
                   </items>
                   <rank>10</rank>
                 </item>
-                <item id="fieldset:AzureCI:moreInfo">
+                <item id="fieldset:AzureCI:moreinfo">
                   <items>
                     <item id="address_space">
                       <rank>10</rank>
@@ -3350,7 +3388,6 @@
           <target_class>AzureVirtualMachine</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>Machine virtuelle</label>
         </field>
         <field id="azurevnets_list" xsi:type="AttributeLinkedSetIndirect">
           <ext_key_to_remote>azurevnet_id</ext_key_to_remote>
@@ -5035,7 +5072,6 @@
           <target_class>AzureVirtualMachine</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-          <label>VM Azure</label>
         </field>
         <field id="azurestatus" xsi:type="AttributeEnum">
           <sql>azurestatus</sql>
@@ -5360,7 +5396,8 @@
   <snippets>
     <snippet id="AzureExtraMEnus" _delta="define">
       <placement>module</placement>
-      <rank>10</rank>
+      <module>combodo-azure-datamodel</module>
+      <rank>100</rank>
       <content><![CDATA[class AzureExtraMenus implements iPopupMenuExtension
 {
 	const AZURE_DEFAULT_MENU_ICON = 'fas fa-cloud-upload-alt';
@@ -5421,7 +5458,6 @@
 	}
 }
 ]]></content>
-      <module>itop-config-mgmt</module>
     </snippet>
   </snippets>
 </itop_design>
