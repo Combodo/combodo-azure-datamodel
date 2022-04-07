@@ -22,6 +22,16 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureIdentity+' => '',
 	'Class:AzureIdentity/Name' => '%1$s',
 	'Class:AzureIdentity/Name+' => '',
+	'Class:AzureIdentity/Attribute:name' => 'Name',
+	'Class:AzureIdentity/Attribute:name+' => '',
+	'Class:AzureIdentity/Attribute:org_id' => 'Organization',
+	'Class:AzureIdentity/Attribute:org_id+' => '',
+	'Class:AzureIdentity/Attribute:status' => 'Status',
+	'Class:AzureIdentity/Attribute:status+' => '',
+	'Class:AzureIdentity/Attribute:business_criticity' => 'Business criticity',
+	'Class:AzureIdentity/Attribute:business_criticity+' => '',
+	'Class:AzureIdentity/Attribute:move2production' => 'Move to production date',
+	'Class:AzureIdentity/Attribute:move2production+' => '',
 ));
 
 //
@@ -41,13 +51,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureTenant/Attribute:azureusers_list+' => '',
 	'Class:AzureTenant/Attribute:country' => 'Country',
 	'Class:AzureTenant/Attribute:country+' => 'Country/Region',
+	'Class:AzureTenant/Attribute:description' => 'Description',
+	'Class:AzureTenant/Attribute:description+' => '',
 	'Class:AzureTenant/Attribute:domain' => 'Domain name',
 	'Class:AzureTenant/Attribute:domain+' => 'Initial domain name',
 	'Class:AzureTenant/Attribute:tenantid' => 'ID',
 	'Class:AzureTenant/Attribute:tenantid+' => '',
-	'Class:AzureTenant/Attribute:type' => '',
-	'Class:AzureTenant/Attribute:type+' => 'AAD - B2C',
-	'Class:AzureTenant/Attribute:type/Value:AAD - B2C' => 'Azure Active Directory(B2C)',
+	'Class:AzureTenant/Attribute:type' => 'Type',
+	'Class:AzureTenant/Attribute:type+' => '',
+	'Class:AzureTenant/Attribute:type/Value:AAD-B2C' => 'Azure Active Directory (B2C)',
 	'Class:AzureTenant/Attribute:type/Value:AAD' => 'Azure Active Directory',
 ));
 
@@ -148,6 +160,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureResourceGroup/Attribute:documents_list' => 'Documents',
 	'Class:AzureResourceGroup/Attribute:documents_list+' => '',
 	'Class:AzureResourceGroup/Attribute:location_id' => 'Location',
+	'Class:AzureResourceGroup/Attribute:location_id+' => '',
 	'Class:AzureResourceGroup/Attribute:move2production' => 'Move to production date',
 	'Class:AzureResourceGroup/Attribute:move2production+' => '',
 	'Class:AzureResourceGroup/Attribute:name' => 'Name',
@@ -168,7 +181,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 // lnkAzureResourceGroupToContact
 //
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:lnkAzureResourceGroupToContact' => 'Link Azure Resource Group/Contact',
+	'Class:lnkAzureResourceGroupToContact' => 'Link Azure resource group / Contact',
 	'Class:lnkAzureResourceGroupToContact+' => '',
 	'Class:lnkAzureResourceGroupToContact/Name' => '%1$s - %2$s',
 	'Class:lnkAzureResourceGroupToContact/Name+' => '',
@@ -180,7 +193,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 // lnkAzureResourceGroupToDocument
 //
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:lnkAzureResourceGroupToDocument' => 'Link Azure Resource Group/Document',
+	'Class:lnkAzureResourceGroupToDocument' => 'Link Azure resource group / Document',
 	'Class:lnkAzureResourceGroupToDocument+' => '',
 	'Class:lnkAzureResourceGroupToDocument/Name' => '%1$s - %2$s',
 	'Class:lnkAzureResourceGroupToDocument/Name+' => '',
@@ -221,6 +234,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureCI/Attribute:contract_id' => 'Subscription',
 	'Class:AzureCI/Attribute:contract_id+' => 'Azure subscription',
 	'Class:AzureCI/Attribute:location_id' => 'Location',
+	'Class:AzureCI/Attribute:location_id+' => '',
 	'Class:AzureCI/Attribute:management_url' => 'Management URL',
 	'Class:AzureCI/Attribute:provisioning_status' => 'Provisioning status',
 	'Class:AzureCI/Attribute:provisioning_status/Value:canceled' => 'Canceled',
@@ -411,8 +425,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVirtualMachine/Attribute:azureimage_osversion_id' => 'Image - OS Version',
 	'Class:AzureVirtualMachine/Attribute:azureimage_osversion_id+' => 'OS version of the initial image',
 	'Class:AzureVirtualMachine/Attribute:azurenics_list' => 'Network interfaces',
-	'Class:AzureVirtualMachine/Attribute:azurevmdisks_list' => 'Disk',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize' => 'Size(text)',
+	'Class:AzureVirtualMachine/Attribute:azurevmdisks_list' => 'Disks',
+	'Class:AzureVirtualMachine/Attribute:azurevmsize' => 'Size',
 	'Class:AzureVirtualMachine/Attribute:azurevmsize+' => '',
 	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number' => 'vCPU',
 	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number+' => 'Virtual processors',
@@ -429,6 +443,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVirtualMachine/Attribute:managementip' => 'Management IP',
 	'Class:AzureVirtualMachine/Attribute:managementip+' => 'Management IP address',
 	'Class:AzureVirtualMachine/Attribute:osfamily_id' => 'OS family',
+	'Class:AzureVirtualMachine/Attribute:osfamily_id+' => '',
 	'Class:AzureVirtualMachine/Attribute:oslicence_id' => 'OS license',
 	'Class:AzureVirtualMachine/Attribute:osversion' => 'OS version',
 	'Class:AzureVirtualMachine/Attribute:osversion+' => '',
@@ -444,6 +459,18 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVirtualMachine/Attribute:softwareinstances_list' => 'Software instances',
 	'Class:AzureVirtualMachine/Attribute:zone_id' => 'Zone',
 	'Class:AzureVirtualMachine/Attribute:zone_id+' => 'Availability zone',
+));
+
+//
+// lnkAzureVirtualMachineToSoftwareInstance
+//
+Dict::Add('FR FR', 'French', 'Français', array(
+	'Class:lnkAzureVirtualMachineToSoftwareInstance' => 'Link Azure virtual machine / Software instance',
+	'Class:lnkAzureVirtualMachineToSoftwareInstance+' => '',
+	'Class:lnkAzureVirtualMachineToSoftwareInstance/Name' => '%1$s - %2$s',
+	'Class:lnkAzureVirtualMachineToSoftwareInstance/Name+' => '',
+	'Class:lnkAzureVirtualMachineToSoftwareInstance/Attribute:azurevirtualmachine_id' => 'Azure virtual machine',
+	'Class:lnkAzureVirtualMachineToSoftwareInstance/Attribute:softwareinstance_id' => 'Software instance',
 ));
 
 //
@@ -478,6 +505,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureNetworkInterface/Attribute:azureresourcegroup_id' => 'Resource group',
 	'Class:AzureNetworkInterface/Attribute:azureresourcegroup_id+' => 'Azure resource group',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Virtual machine',
+	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
 	'Class:AzureNetworkInterface/Attribute:azurevnet_id' => 'VNet',
 	'Class:AzureNetworkInterface/Attribute:azurevnets_list' => 'VNets',
 	'Class:AzureNetworkInterface/Attribute:azurevnets_list+' => '',
@@ -504,7 +532,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 // lnkAzureNetworkInterfaceToAzureVNet
 //
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:lnkAzureNetworkInterfaceToAzureVNet' => 'Link Azure Network interface/Azure VNet ',
+	'Class:lnkAzureNetworkInterfaceToAzureVNet' => 'Link Azure network interface / Azure VNet ',
 	'Class:lnkAzureNetworkInterfaceToAzureVNet/Name' => '%1$s - %2$s',
 	'Class:lnkAzureNetworkInterfaceToAzureVNet/Attribute:azurenetworkinterface_id' => 'Azure Network interface',
 	'Class:lnkAzureNetworkInterfaceToAzureVNet/Attribute:azurevnet_id' => 'VNet',
@@ -561,6 +589,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureAppService/Attribute:azurestorageaccounts_list+' => '',
 	'Class:AzureAppService/Attribute:url' => 'URL',
 	'Class:AzureAppService/Attribute:url+' => '',
+	'Class:AzureAppService/Attribute:ftps_hostname' => 'FTPs Hostname',
+	'Class:AzureAppService/Attribute:ftps_hostname+' => '',
 ));
 
 //
@@ -579,8 +609,6 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureKubernetesService' => 'Kubernetes Service(AKS)',
 	'Class:AzureKubernetesService+' => 'Azure Kubernetes Service(AKS)',
 	'Class:AzureKubernetesService/Name' => '%1$s',
-	'Class:AzureKubernetesService/Attribute:azurevmsize_id' => 'Node Size',
-	'Class:AzureKubernetesService/Attribute:azurevmsize_id+' => '',
 	'Class:AzureKubernetesService/Attribute:fqdn' => 'FQDN',
 	'Class:AzureKubernetesService/Attribute:fqdn+' => '',
 	'Class:AzureKubernetesService/Attribute:max_agent_pools' => 'Max agent pools',
@@ -642,6 +670,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureDisk/Attribute:azurestatus/Value:reserved' => 'Reserved',
 	'Class:AzureDisk/Attribute:azurestatus/Value:unattached' => 'Unattached',
 	'Class:AzureDisk/Attribute:azurevirtualmachine_id' => 'Azure VM',
+	'Class:AzureDisk/Attribute:azurevirtualmachine_id+' => '',
 	'Class:AzureDisk/Attribute:datatype' => 'Data type',
 	'Class:AzureDisk/Attribute:datatype+' => 'Type of data on this disk',
 	'Class:AzureDisk/Attribute:datatype/Value:data' => 'Datas',
