@@ -1,31 +1,27 @@
-# Extension Azure Datamodel
+# Extension Azure Data model
 
-You've just created a new iTop extension, congratulations!
+## About
 
-## What to do next ?
+This extension allows you to integrate Microsoft Azure environments within iTop. It adds to your iTop datamodel classes of objects that
+modelize main Azure objects contained in subscriptions and resource groups, like virtual machines, network components, databases, apps...
 
-  - Adjust the iTop mininum version (by default iTop 2.6.0) if needed by editing the `version` in the datamodel XML file (`<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.6">`)
-  - Install this (empty) extension in your iTop using the setup
-  - Get the [toolkit](https://www.itophub.io/wiki/page?id=latest%3Acustomization%3Adatamodel) and update your iTop (check the option "symbolic links")
-  - Update your code then refresh the iTop pages to see the magic happen... or not (ah, ah, debug!!)
+If properly documented, these objects will help people in charge of the change process of you company to better understand the real impact
+that a modification may have on you Azure infrastructure and the services that it delivers.
 
-### Autoloader
-If you declare some PHP classes in the `src` folder, you'll have to build/update the autoloader with [Composer](https://getcomposer.org). The command line (to be launched from the root directory of your extension) is the following:
+For an optimal usage, this extension should be used with the "Data collector for Azure" that will automatically and regularly discover Azure
+objects in their environement and load them in iTop. This ETL will insure that your data are always up to date in iTop.
 
-```
-composer update
-composer dump-autoload -o
-```
+For more information about this module have a look at the
+corresponding [extension documentation](https://store.itophub.io/en_US/products/combodo-azure-datamodel).
 
-### Hooks
-If you implement some "Hooks" (i.e. classes implementing one of the [Extension APIs](https://www.itophub.io/wiki/page?id=2_7_0%3Acustomization%3Aextensions_api), for example iApplicationExtension), put them in the `src/Hook` folder and add the file `datamodel` section of the `module` file for an explicit inclusion. The same rule applies if you declare some datamodel classes in plain PHP.
+## Download
 
-```
-		//
-		'datamodel' => array(
-			'vendor/autoload.php',
-			'model.test-extension.php', // contains the PHP code generated from the datamodel.test-extension.xml
-			'src/Hook/MyHook.php', // Explicit include, hooks cannot benefit from the autoloader
-		),
+Release packages can be found on the [iTop Hub Store](https://store.itophub.io/en_US/taxons/all-extensions). This is the best way to get a
+running package as those contains all the needed modules and stable code.
 
-```
+When downloading directly from GitHub (by cloning or downloading as zip) you will get potentially unstable code, and you will miss
+additional modules.
+
+## About Us
+
+This iTop module development is sponsored, led and supported by [Combodo](https://www.combodo.com).
