@@ -540,8 +540,11 @@
                     <item id="org_id">
                       <rank>40</rank>
                     </item>
-                    <item id="status">
+                    <item id="provider_id">
                       <rank>50</rank>
+                    </item>
+                    <item id="status">
+                      <rank>60</rank>
                     </item>
                   </items>
                   <rank>10</rank>
