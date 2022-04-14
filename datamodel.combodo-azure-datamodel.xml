@@ -5432,7 +5432,7 @@
 					// Add URL toward Azure objects using Tenant's name
 					$sTenantName = $oObj->Get('azuretenant_name');
 					if ($sTenantName != '') {
-        				$aDirectAccessParams = MetaModel::GetModuleSetting(MODULE_NAME, 'direct_access', array());
+        				$aDirectAccessParams = MetaModel::GetModuleSetting(static::MODULE_NAME, 'direct_access', array());
 		        		if (!empty($aDirectAccessParams)) {
 				        	if (array_key_exists('label', $aDirectAccessParams) && array_key_exists('url', $aDirectAccessParams)) {
 				                $sLabel = $aDirectAccessParams['label'];
@@ -5446,7 +5446,7 @@
 						            $sTooltip = array_key_exists('tooltip', $aDirectAccessParams) ? $aDirectAccessParams['tooltip'] : '';
 
 						            // Build icon
-						            $sIcon = array_key_exists('icon', $aDirectAccessParams) ? $aDirectAccessParams['icon'] : AZURE_DEFAULT_MENU_ICON;
+						            $sIcon = array_key_exists('icon', $aDirectAccessParams) ? $aDirectAccessParams['icon'] : static::AZURE_DEFAULT_MENU_ICON;
 
 						            // Build target page
 						            $sTarget = array_key_exists('target', $aDirectAccessParams) ? $aDirectAccessParams['target'] : '_blank';
