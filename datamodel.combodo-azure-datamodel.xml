@@ -5412,6 +5412,7 @@
       <rank>100</rank>
       <content><![CDATA[class AzureExtraMenus implements iPopupMenuExtension
 {
+  const MODULE_NAME 'combodo-azure-datamodel';
 	const AZURE_DEFAULT_MENU_ICON = 'fas fa-cloud-upload-alt';
 
 	/**
@@ -5431,7 +5432,7 @@
 					// Add URL toward Azure objects using Tenant's name
 					$sTenantName = $oObj->Get('azuretenant_name');
 					if ($sTenantName != '') {
-        				$aDirectAccessParams = MetaModel::GetModuleSetting('combodo-azure-integration', 'direct_access', array());
+        				$aDirectAccessParams = MetaModel::GetModuleSetting(MODULE_NAME, 'direct_access', array());
 		        		if (!empty($aDirectAccessParams)) {
 				        	if (array_key_exists('label', $aDirectAccessParams) && array_key_exists('url', $aDirectAccessParams)) {
 				                $sLabel = $aDirectAccessParams['label'];
