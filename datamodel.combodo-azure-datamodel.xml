@@ -5412,7 +5412,7 @@
       <rank>100</rank>
       <content><![CDATA[class AzureExtraMenus implements iPopupMenuExtension
 {
-  const MODULE_NAME 'combodo-azure-datamodel';
+	const MODULE_NAME = 'combodo-azure-datamodel';
 	const AZURE_DEFAULT_MENU_ICON = 'fas fa-cloud-upload-alt';
 
 	/**
