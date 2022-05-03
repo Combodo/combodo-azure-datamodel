@@ -5193,11 +5193,11 @@
                 <rank>10</rank>
                 <class>AzureDisk</class>
               </dashlet>
-               <dashlet id="AzureStorageAccount" xsi:type="DashletBadge">
+              <dashlet id="AzureStorageAccount" xsi:type="DashletBadge">
                 <rank>11</rank>
                 <class>AzureStorageAccount</class>
               </dashlet>
-             <dashlet id="AzureKubernetesService" xsi:type="DashletBadge">
+              <dashlet id="AzureKubernetesService" xsi:type="DashletBadge">
                 <rank>12</rank>
                 <class>AzureKubernetesService</class>
               </dashlet>
