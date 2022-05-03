@@ -710,5 +710,5 @@ Dict::Add('EN US', 'English', 'English', array(
 // Menus
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Menu:ConfigManagement:Azure' => 'Cloud Azure',
+	'Menu:ConfigManagement:Azure' => 'Azure Cloud',
 ));
