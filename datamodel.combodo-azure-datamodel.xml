@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
   <classes>
     <class id="Location" _created_in="itop-structure" _delta="must_exist">
       <fields>
@@ -41,9 +41,7 @@
         <category>bizmodel,searchable</category>
         <abstract>true</abstract>
         <db_table>azureidentity</db_table>
-        <style>
-          <icon>assets/img/10221-icon-service-Azure-Active-Directory.svg</icon>
-        </style>
+        <icon>assets/img/10221-icon-service-Azure-Active-Directory.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -77,24 +75,12 @@
         <field id="status" xsi:type="AttributeEnum">
           <sql>status</sql>
           <values>
-            <value id="production">
-              <code>production</code>
-            </value>
-            <value id="implementation">
-              <code>implementation</code>
-            </value>
-            <value id="stock">
-              <code>stock</code>
-            </value>
-            <value id="inactif">
-              <code>inactif</code>
-            </value>
-            <value id="obsolete">
-              <code>obsolete</code>
-            </value>
-            <value id="stopped">
-              <code>stopped</code>
-            </value>
+            <value id="production">production</value>
+            <value id="implementation">implementation</value>
+            <value id="stock">stock</value>
+            <value id="inactif">inactif</value>
+            <value id="obsolete">obsolete</value>
+            <value id="stopped">stopped</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -105,15 +91,9 @@
         <field id="business_criticity" xsi:type="AttributeEnum">
           <sql>business_criticity</sql>
           <values>
-            <value id="high">
-              <code>high</code>
-            </value>
-            <value id="medium">
-              <code>medium</code>
-            </value>
-            <value id="low">
-              <code>low</code>
-            </value>
+            <value id="high">high</value>
+            <value id="medium">medium</value>
+            <value id="low">low</value>
           </values>
           <default_value>low</default_value>
           <is_null_allowed>true</is_null_allowed>
@@ -190,9 +170,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azuretenant</db_table>
-        <style>
-          <icon>assets/img/10221-icon-service-Azure-Active-Directory.svg</icon>
-        </style>
+        <icon>assets/img/10221-icon-service-Azure-Active-Directory.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -209,12 +187,8 @@
         <field id="type" xsi:type="AttributeEnum">
           <sql>type</sql>
           <values>
-            <value id="AAD">
-              <code>AAD</code>
-            </value>
-            <value id="AAD-B2C">
-              <code>AAD-B2C</code>
-            </value>
+            <value id="AAD">AAD</value>
+            <value id="AAD-B2C">AAD-B2C</value>
           </values>
           <default_value>AAD</default_value>
           <is_null_allowed>true</is_null_allowed>
@@ -394,9 +368,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10002-icon-service-Subscriptions.svg</icon>
-        </style>
+        <icon>assets/img/10002-icon-service-Subscriptions.svg</icon>
       </properties>
       <fields>
         <field id="subscriptionid" xsi:type="AttributeString">
@@ -416,12 +388,8 @@
         <field id="discover_objects" xsi:type="AttributeEnum">
           <sql>discover_objects</sql>
           <values>
-            <value id="no">
-              <code>no</code>
-            </value>
-            <value id="yes">
-              <code>yes</code>
-            </value>
+            <value id="no">no</value>
+            <value id="yes">yes</value>
           </values>
           <default_value>no</default_value>
           <is_null_allowed>true</is_null_allowed>
@@ -660,9 +628,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10007-icon-service-Resource-Groups.svg</icon>
-        </style>
+        <icon>assets/img/10007-icon-service-Resource-Groups.svg</icon>
       </properties>
       <fields>
         <field id="name" xsi:type="AttributeString">
@@ -711,21 +677,11 @@
         <field id="provisioning_status" xsi:type="AttributeEnum">
           <sql>provisioning_status</sql>
           <values>
-            <value id="deleting">
-              <code>deleting</code>
-            </value>
-            <value id="succeeded">
-              <code>succeeded</code>
-            </value>
-            <value id="failed">
-              <code>failed</code>
-            </value>
-            <value id="canceled">
-              <code>canceled</code>
-            </value>
-            <value id="inprogress">
-              <code>inprogress</code>
-            </value>
+            <value id="deleting">deleting</value>
+            <value id="succeeded">succeeded</value>
+            <value id="failed">failed</value>
+            <value id="canceled">canceled</value>
+            <value id="inprogress">inprogress</value>
           </values>
           <default_value>succeeded</default_value>
           <is_null_allowed>false</is_null_allowed>
@@ -822,15 +778,9 @@
         <field id="business_criticity" xsi:type="AttributeEnum">
           <sql>business_criticity</sql>
           <values>
-            <value id="high">
-              <code>high</code>
-            </value>
-            <value id="medium">
-              <code>medium</code>
-            </value>
-            <value id="low">
-              <code>low</code>
-            </value>
+            <value id="high">high</value>
+            <value id="medium">medium</value>
+            <value id="low">low</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -1147,9 +1097,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/icons8-azure.svg</icon>
-        </style>
+        <icon>assets/img/icons8-azure.svg</icon>
       </properties>
       <fields>
         <field id="location_id" xsi:type="AttributeExternalKey">
@@ -1165,24 +1113,12 @@
         <field id="status" xsi:type="AttributeEnum">
           <sql>status</sql>
           <values>
-            <value id="production">
-              <code>production</code>
-            </value>
-            <value id="implementation">
-              <code>implementation</code>
-            </value>
-            <value id="stock">
-              <code>stock</code>
-            </value>
-            <value id="inactif">
-              <code>inactif</code>
-            </value>
-            <value id="obsolete">
-              <code>obsolete</code>
-            </value>
-            <value id="stopped">
-              <code>stopped</code>
-            </value>
+            <value id="production">production</value>
+            <value id="implementation">implementation</value>
+            <value id="stock">stock</value>
+            <value id="inactif">inactif</value>
+            <value id="obsolete">obsolete</value>
+            <value id="stopped">stopped</value>
           </values>
           <default_value>production</default_value>
           <is_null_allowed>false</is_null_allowed>
@@ -1234,39 +1170,17 @@
           <validation_pattern/>
           <tracking_level>all</tracking_level>
           <values>
-            <value id="canceled">
-              <code>canceled</code>
-            </value>
-            <value id="deleting">
-              <code>deleting</code>
-            </value>
-            <value id="disabled">
-              <code>disabled</code>
-            </value>
-            <value id="dropping">
-              <code>dropping</code>
-            </value>
-            <value id="failed">
-              <code>failed</code>
-            </value>
-            <value id="inprogress">
-              <code>inprogress</code>
-            </value>
-            <value id="ready">
-              <code>ready</code>
-            </value>
-            <value id="running">
-              <code>running</code>
-            </value>
-            <value id="starting">
-              <code>starting</code>
-            </value>
-            <value id="succeeded">
-              <code>succeeded</code>
-            </value>
-            <value id="terminating">
-              <code>terminating</code>
-            </value>
+            <value id="canceled">canceled</value>
+            <value id="deleting">deleting</value>
+            <value id="disabled">disabled</value>
+            <value id="dropping">dropping</value>
+            <value id="failed">failed</value>
+            <value id="inprogress">inprogress</value>
+            <value id="ready">ready</value>
+            <value id="running">running</value>
+            <value id="starting">starting</value>
+            <value id="succeeded">succeeded</value>
+            <value id="terminating">terminating</value>
           </values>
           <display_style>list</display_style>
           <dependencies/>
@@ -1365,9 +1279,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/azure-database-generic.svg</icon>
-        </style>
+        <icon>assets/img/azure-database-generic.svg</icon>
       </properties>
       <fields/>
       <methods/>
@@ -1463,9 +1375,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/icons8-serveur-48.png</icon>
-        </style>
+        <icon>assets/img/icons8-serveur-48.png</icon>
       </properties>
       <fields>
         <field id="azuremariadbs_list" xsi:type="AttributeLinkedSet">
@@ -1514,18 +1424,10 @@
         <field id="type" xsi:type="AttributeEnum">
           <sql>type</sql>
           <values>
-            <value id="mariadb">
-              <code>mariadb</code>
-            </value>
-            <value id="postgre">
-              <code>postgre</code>
-            </value>
-            <value id="mysql">
-              <code>mysql</code>
-            </value>
-            <value id="mssql">
-              <code>mssql</code>
-            </value>
+            <value id="mariadb">mariadb</value>
+            <value id="postgre">postgre</value>
+            <value id="mysql">mysql</value>
+            <value id="mssql">mssql</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -1715,9 +1617,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azuremariadb</db_table>
-        <style>
-          <icon>assets/img/10123-icon-service-Azure-Database-MariaDB-Server.svg</icon>
-        </style>
+        <icon>assets/img/10123-icon-service-Azure-Database-MariaDB-Server.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -1928,9 +1828,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azurepostgresql</db_table>
-        <style>
-          <icon>assets/img/10131-icon-service-Azure-Database-PostgreSQL-Server.svg</icon>
-        </style>
+        <icon>assets/img/10131-icon-service-Azure-Database-PostgreSQL-Server.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -2148,9 +2046,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azuremysql</db_table>
-        <style>
-          <icon>assets/img/10122-icon-service-Azure-Database-MySQL-Server.svg</icon>
-        </style>
+        <icon>assets/img/10122-icon-service-Azure-Database-MySQL-Server.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -2368,9 +2264,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azuremssql</db_table>
-        <style>
-          <icon>assets/img/10130-icon-service-SQL-Database.svg</icon>
-        </style>
+        <icon>assets/img/10130-icon-service-SQL-Database.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -2601,9 +2495,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/icons8-google-compute-engine-24.png</icon>
-        </style>
+        <icon>assets/img/icons8-google-compute-engine-24.png</icon>
       </properties>
       <fields/>
       <methods/>
@@ -2738,9 +2630,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10040-icon-service-VM-Images-Classic.svg</icon>
-        </style>
+        <icon>assets/img/10040-icon-service-VM-Images-Classic.svg</icon>
       </properties>
       <fields>
         <field id="osfamily_id" xsi:type="AttributeExternalKey">
@@ -3047,9 +2937,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/icons8-network.svg</icon>
-        </style>
+        <icon>assets/img/icons8-network.svg</icon>
       </properties>
       <fields/>
       <methods/>
@@ -3187,9 +3075,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10075-icon-service-Virtual-Networks-Classic.svg</icon>
-        </style>
+        <icon>assets/img/10075-icon-service-Virtual-Networks-Classic.svg</icon>
       </properties>
       <fields>
         <field id="address_space" xsi:type="AttributeString">
@@ -3373,9 +3259,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azurenetworkinterface</db_table>
-        <style>
-          <icon>assets/img/10080-icon-service-Network-Interfaces.svg</icon>
-        </style>
+        <icon>assets/img/10080-icon-service-Network-Interfaces.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -3654,20 +3538,14 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10062-icon-service-Load-Balancers.svg</icon>
-        </style>
+        <icon>assets/img/10062-icon-service-Load-Balancers.svg</icon>
       </properties>
       <fields>
         <field id="sku" xsi:type="AttributeEnum">
           <sql>sku</sql>
           <values>
-            <value id="basic">
-              <code>basic</code>
-            </value>
-            <value id="standard">
-              <code>standard</code>
-            </value>
+            <value id="basic">basic</value>
+            <value id="standard">standard</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -3829,9 +3707,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azurevnetgateway</db_table>
-        <style>
-          <icon>assets/img/10063-icon-service-Virtual-Network-Gateways.svg</icon>
-        </style>
+        <icon>assets/img/10063-icon-service-Virtual-Network-Gateways.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -3995,9 +3871,7 @@
         <category>bizmodel,searchable</category>
         <abstract>true</abstract>
         <db_table>azureweb</db_table>
-        <style>
-          <icon>assets/img/10846-icon-service-Web-Environment.svg</icon>
-        </style>
+        <icon>assets/img/10846-icon-service-Web-Environment.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -4124,9 +3998,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10035-icon-service-App-Services.svg</icon>
-        </style>
+        <icon>assets/img/10035-icon-service-App-Services.svg</icon>
       </properties>
       <fields>
         <field id="ftps_hostname" xsi:type="AttributeString">
@@ -4321,9 +4193,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/icons8-conteneur-50.png</icon>
-        </style>
+        <icon>assets/img/icons8-conteneur-50.png</icon>
       </properties>
       <fields/>
       <methods/>
@@ -4461,9 +4331,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10023-icon-service-Kubernetes-Services.svg</icon>
-        </style>
+        <icon>assets/img/10023-icon-service-Kubernetes-Services.svg</icon>
       </properties>
       <fields>
         <field id="version" xsi:type="AttributeString">
@@ -4666,9 +4534,7 @@
         <category>bizmodel,searchable</category>
         <abstract>true</abstract>
         <db_table>azurestorage</db_table>
-        <style>
-          <icon>assets/img/storage.png</icon>
-        </style>
+        <icon>assets/img/storage.png</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -4806,9 +4672,7 @@
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
         <db_table>azurestorageaccount</db_table>
-        <style>
-          <icon>assets/img/10087-icon-service-Storage-Accounts-Classic.svg</icon>
-        </style>
+        <icon>assets/img/10087-icon-service-Storage-Accounts-Classic.svg</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -4834,24 +4698,12 @@
         <field id="type" xsi:type="AttributeEnumSet">
           <sql>type</sql>
           <values>
-            <value id="web">
-              <code>web</code>
-            </value>
-            <value id="dfs">
-              <code>dfs</code>
-            </value>
-            <value id="blob">
-              <code>blob</code>
-            </value>
-            <value id="file">
-              <code>file</code>
-            </value>
-            <value id="queue">
-              <code>queue</code>
-            </value>
-            <value id="table">
-              <code>table</code>
-            </value>
+            <value id="web">web</value>
+            <value id="dfs">dfs</value>
+            <value id="blob">blob</value>
+            <value id="file">file</value>
+            <value id="queue">queue</value>
+            <value id="table">table</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -5033,9 +4885,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <style>
-          <icon>assets/img/10032-icon-service-Disks.svg</icon>
-        </style>
+        <icon>assets/img/10032-icon-service-Disks.svg</icon>
       </properties>
       <fields>
         <field id="size" xsi:type="AttributeDecimal">
@@ -5049,24 +4899,12 @@
         <field id="sku" xsi:type="AttributeEnum">
           <sql>sku</sql>
           <values>
-            <value id="standard_lrs">
-              <code>standard_lrs</code>
-            </value>
-            <value id="premium_lrs">
-              <code>premium_lrs</code>
-            </value>
-            <value id="standardssd_lrs">
-              <code>standardssd_lrs</code>
-            </value>
-            <value id="ultrassd_lrs">
-              <code>ultrassd_lrs</code>
-            </value>
-            <value id="premium_zrs">
-              <code>premium_zrs</code>
-            </value>
-            <value id="standardssd_zrs">
-              <code>standardssd_zrs</code>
-            </value>
+            <value id="standard_lrs">standard_lrs</value>
+            <value id="premium_lrs">premium_lrs</value>
+            <value id="standardssd_lrs">standardssd_lrs</value>
+            <value id="ultrassd_lrs">ultrassd_lrs</value>
+            <value id="premium_zrs">premium_zrs</value>
+            <value id="standardssd_zrs">standardssd_zrs</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -5088,24 +4926,12 @@
         <field id="azurestatus" xsi:type="AttributeEnum">
           <sql>azurestatus</sql>
           <values>
-            <value id="activesas">
-              <code>activesas</code>
-            </value>
-            <value id="activeupload">
-              <code>activeupload</code>
-            </value>
-            <value id="attached">
-              <code>attached</code>
-            </value>
-            <value id="readytoupload">
-              <code>readytoupload</code>
-            </value>
-            <value id="reserved">
-              <code>reserved</code>
-            </value>
-            <value id="unattached">
-              <code>unattached</code>
-            </value>
+            <value id="activesas">activesas</value>
+            <value id="activeupload">activeupload</value>
+            <value id="attached">attached</value>
+            <value id="readytoupload">readytoupload</value>
+            <value id="reserved">reserved</value>
+            <value id="unattached">unattached</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
@@ -5129,12 +4955,8 @@
         <field id="encryption" xsi:type="AttributeEnum">
           <sql>encryption</sql>
           <values>
-            <value id="enabled">
-              <code>enabled</code>
-            </value>
-            <value id="disabled">
-              <code>disabled</code>
-            </value>
+            <value id="enabled">enabled</value>
+            <value id="disabled">disabled</value>
           </values>
           <default_value>disabled</default_value>
           <is_null_allowed>false</is_null_allowed>
