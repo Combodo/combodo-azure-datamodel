@@ -28,7 +28,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureIdentity/Attribute:org_id+' => '',
 	'Class:AzureIdentity/Attribute:status' => 'Status',
 	'Class:AzureIdentity/Attribute:status+' => '',
-	'Class:AzureIdentity/Attribute:business_criticity' => 'Business criticity',
+	'Class:AzureIdentity/Attribute:business_criticity' => 'Business criticality',
 	'Class:AzureIdentity/Attribute:business_criticity+' => '',
 	'Class:AzureIdentity/Attribute:move2production' => 'Move to production date',
 	'Class:AzureIdentity/Attribute:move2production+' => '',
@@ -38,7 +38,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureTenant
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureTenant' => 'Azure Tenant',
+	'Class:AzureTenant' => 'Tenant',
 	'Class:AzureTenant+' => '',
 	'Class:AzureTenant/Name' => '%1$s',
 	'Class:AzureTenant/Name+' => '',
@@ -126,7 +126,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureResourceGroup/Attribute:azurecontainers_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azuredbs_list' => 'DBs',
 	'Class:AzureResourceGroup/Attribute:azuredbs_list+' => '',
-	'Class:AzureResourceGroup/Attribute:azureid' => 'ID Azure',
+	'Class:AzureResourceGroup/Attribute:azureid' => 'Azure ID',
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list' => 'Identities',
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azureinterfaces_list' => 'NICs',
@@ -219,7 +219,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureCI/Attribute:azureavailabilitytype/Value:2' => 'Zone 2',
 	'Class:AzureCI/Attribute:azureavailabilitytype/Value:3' => 'Zone 3',
 	'Class:AzureCI/Attribute:azureavailabilitytype/Value:interzone' => 'Interzone redundancy',
-	'Class:AzureCI/Attribute:azureid' => 'ID Azure',
+	'Class:AzureCI/Attribute:azureid' => 'Azure ID',
 	'Class:AzureCI/Attribute:azureid+' => 'Object ID',
 	'Class:AzureCI/Attribute:azureresourcegroup_id' => 'Resource group',
 	'Class:AzureCI/Attribute:azureresourcegroup_id+' => 'Resource group Azure',
@@ -609,8 +609,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureKubernetesService
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureKubernetesService' => 'Kubernetes Service(AKS)',
-	'Class:AzureKubernetesService+' => 'Azure Kubernetes Service(AKS)',
+	'Class:AzureKubernetesService' => 'Kubernetes Service',
+	'Class:AzureKubernetesService+' => 'Azure Kubernetes Service - AKS',
 	'Class:AzureKubernetesService/Name' => '%1$s',
 	'Class:AzureKubernetesService/Attribute:fqdn' => 'FQDN',
 	'Class:AzureKubernetesService/Attribute:fqdn+' => '',
