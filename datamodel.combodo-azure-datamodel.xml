@@ -5209,7 +5209,7 @@
                 <rank>14</rank>
                 <class>AzureMariaDB</class>
               </dashlet>
-              <dashlet id="AzureMariaDB" xsi:type="DashletBadge">
+              <dashlet id="AzureMySQL" xsi:type="DashletBadge">
                 <rank>15</rank>
                 <class>AzureMySQL</class>
               </dashlet>
