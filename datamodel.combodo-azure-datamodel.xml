@@ -130,25 +130,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="status">
-              <rank>30</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>40</rank>
-            </item>
-            <item id="move2production">
-              <rank>50</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items>
             <item id="name">
@@ -226,6 +208,12 @@
           <height/>
           <tracking_level>all</tracking_level>
         </field>
+        <field id="azuresubscriptions_list" xsi:type="AttributeLinkedSet">
+          <linked_class>AzureSubscription</linked_class>
+          <ext_key_to_me>azuretenant_id</ext_key_to_me>
+          <tracking_level>list</tracking_level>
+          <edit_mode/>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -263,6 +251,9 @@
         </search>
         <details>
           <items>
+            <item id="azuresubscriptions_list">
+              <rank>10</rank>
+            </item>
             <item id="col:col0">
               <items>
                 <item id="fieldset:AzureTenant:baseinfo">
@@ -300,7 +291,7 @@
                   <rank>20</rank>
                 </item>
               </items>
-              <rank>10</rank>
+              <rank>20</rank>
             </item>
             <item id="col:col1">
               <items>
@@ -316,7 +307,7 @@
                   <rank>10</rank>
                 </item>
               </items>
-              <rank>20</rank>
+              <rank>30</rank>
             </item>
           </items>
         </details>
@@ -698,8 +689,10 @@
         </field>
         <field id="azuresubscription_id" xsi:type="AttributeExternalKey">
           <sql>azuresubscription_id</sql>
-          <filter/>
-          <dependencies/>
+          <filter><![CDATA[SELECT AzureSubscription AS s JOIN Organization AS root ON s.org_id = root.id JOIN Organization AS child ON child.parent_id BELOW root.id WHERE child.id = :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
           <is_null_allowed>false</is_null_allowed>
           <target_class>AzureSubscription</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -1102,8 +1095,10 @@
       <fields>
         <field id="location_id" xsi:type="AttributeExternalKey">
           <sql>location_id</sql>
-          <filter/>
-          <dependencies/>
+          <filter><![CDATA[SELECT Location WHERE org_id = :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>Location</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -1135,8 +1130,10 @@
         </field>
         <field id="azuresubscription_id" xsi:type="AttributeExternalKey">
           <sql>azuresubscription_id</sql>
-          <filter/>
-          <dependencies/>
+          <filter><![CDATA[SELECT AzureSubscription AS s JOIN Organization AS root ON s.org_id = root.id JOIN Organization AS child ON child.parent_id BELOW root.id WHERE child.id = :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureSubscription</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -1152,8 +1149,10 @@
         </field>
         <field id="azureresourcegroup_id" xsi:type="AttributeExternalKey">
           <sql>azureresourcegroup_id</sql>
-          <filter/>
-          <dependencies/>
+          <filter><![CDATA[SELECT AzureResourceGroup WHERE azuresubscription_id = :this->azuresubscription_id]]></filter>
+          <dependencies>
+            <attribute id="azuresubscription_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureResourceGroup</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -1566,11 +1565,8 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
             <item id="azuremariadbs_list">
-              <rank>70</rank>
+              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -1790,9 +1786,6 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
           </items>
         </details>
         <default_search>
@@ -1852,10 +1845,6 @@
           <target_class>AzureDBServer</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
-        </field>
-        <field id="azuredbserver_name" xsi:type="AttributeExternalField">
-          <extkey_attcode>azuredbserver_id</extkey_attcode>
-          <target_attcode>name</target_attcode>
         </field>
         <field id="azuredbserver_fqdn" xsi:type="AttributeExternalField">
           <extkey_attcode>azuredbserver_id</extkey_attcode>
@@ -2007,9 +1996,6 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -2071,10 +2057,6 @@
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
         </field>
-        <field id="azuredbserver_name" xsi:type="AttributeExternalField">
-          <extkey_attcode>azuredbserver_id</extkey_attcode>
-          <target_attcode>name</target_attcode>
-        </field>
         <field id="azuredbserver_fqdn" xsi:type="AttributeExternalField">
           <extkey_attcode>azuredbserver_id</extkey_attcode>
           <target_attcode>fqdn</target_attcode>
@@ -2225,9 +2207,6 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -2289,10 +2268,6 @@
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
         </field>
-        <field id="azuredbserver_name" xsi:type="AttributeExternalField">
-          <extkey_attcode>azuredbserver_id</extkey_attcode>
-          <target_attcode>name</target_attcode>
-        </field>
         <field id="azuredbserver_fqdn" xsi:type="AttributeExternalField">
           <extkey_attcode>azuredbserver_id</extkey_attcode>
           <target_attcode>fqdn</target_attcode>
@@ -2443,9 +2418,6 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -2541,49 +2513,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>30</rank>
-            </item>
-            <item id="move2production">
-              <rank>40</rank>
-            </item>
-            <item id="description">
-              <rank>50</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>60</rank>
-            </item>
-            <item id="documents_list">
-              <rank>70</rank>
-            </item>
-            <item id="applicationsolution_list">
-              <rank>80</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>90</rank>
-            </item>
-            <item id="location_id">
-              <rank>100</rank>
-            </item>
-            <item id="status">
-              <rank>110</rank>
-            </item>
-            <item id="azureid">
-              <rank>120</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>130</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items>
             <item id="name">
@@ -2805,17 +2735,14 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
+            <item id="azurevmdisks_list">
               <rank>60</rank>
             </item>
-            <item id="azurevmdisks_list">
+            <item id="azurenics_list">
               <rank>70</rank>
             </item>
-            <item id="azurenics_list">
-              <rank>80</rank>
-            </item>
             <item id="softwareinstances_list">
-              <rank>90</rank>
+              <rank>80</rank>
             </item>
           </items>
         </details>
@@ -2986,49 +2913,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>30</rank>
-            </item>
-            <item id="move2production">
-              <rank>40</rank>
-            </item>
-            <item id="description">
-              <rank>50</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>60</rank>
-            </item>
-            <item id="documents_list">
-              <rank>70</rank>
-            </item>
-            <item id="applicationsolution_list">
-              <rank>80</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>90</rank>
-            </item>
-            <item id="location_id">
-              <rank>100</rank>
-            </item>
-            <item id="status">
-              <rank>110</rank>
-            </item>
-            <item id="azureid">
-              <rank>120</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>130</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items>
             <item id="name">
@@ -3215,11 +3100,8 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
             <item id="azurenetworkinterfaces_list">
-              <rank>70</rank>
+              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -3412,11 +3294,8 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
             <item id="azurevnets_list">
-              <rank>70</rank>
+              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -3833,9 +3712,6 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
           </items>
         </details>
         <default_search>
@@ -3930,49 +3806,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>30</rank>
-            </item>
-            <item id="move2production">
-              <rank>40</rank>
-            </item>
-            <item id="description">
-              <rank>50</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>60</rank>
-            </item>
-            <item id="documents_list">
-              <rank>70</rank>
-            </item>
-            <item id="applicationsolution_list">
-              <rank>80</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>90</rank>
-            </item>
-            <item id="location_id">
-              <rank>100</rank>
-            </item>
-            <item id="status">
-              <rank>110</rank>
-            </item>
-            <item id="azureid">
-              <rank>120</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>130</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items/>
         </default_search>
@@ -4145,6 +3979,9 @@
             <item id="documents_list">
               <rank>40</rank>
             </item>
+            <item id="applicationsolution_list">
+              <rank>50</rank>
+            </item>
           </items>
         </details>
         <default_search>
@@ -4242,49 +4079,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>30</rank>
-            </item>
-            <item id="move2production">
-              <rank>40</rank>
-            </item>
-            <item id="description">
-              <rank>50</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>60</rank>
-            </item>
-            <item id="documents_list">
-              <rank>70</rank>
-            </item>
-            <item id="applicationsolution_list">
-              <rank>80</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>90</rank>
-            </item>
-            <item id="location_id">
-              <rank>100</rank>
-            </item>
-            <item id="status">
-              <rank>110</rank>
-            </item>
-            <item id="azureid">
-              <rank>120</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>130</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items>
             <item id="name">
@@ -4496,9 +4291,6 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
-            </item>
           </items>
         </details>
         <default_search>
@@ -4596,49 +4388,7 @@
             </item>
           </items>
         </search>
-        <details>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="business_criticity">
-              <rank>30</rank>
-            </item>
-            <item id="move2production">
-              <rank>40</rank>
-            </item>
-            <item id="description">
-              <rank>50</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>60</rank>
-            </item>
-            <item id="documents_list">
-              <rank>70</rank>
-            </item>
-            <item id="applicationsolution_list">
-              <rank>80</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>90</rank>
-            </item>
-            <item id="location_id">
-              <rank>100</rank>
-            </item>
-            <item id="status">
-              <rank>110</rank>
-            </item>
-            <item id="azureid">
-              <rank>120</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>130</rank>
-            </item>
-          </items>
-        </details>
+        <details/>
         <default_search>
           <items>
             <item id="name">
@@ -4833,9 +4583,6 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -5103,9 +4850,6 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
-            </item>
-            <item id="providercontracts_list">
-              <rank>60</rank>
             </item>
           </items>
         </details>
