@@ -328,8 +328,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureNetworkInterface
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureNetworkInterface' => 'Network Card',
-	'Class:AzureNetworkInterface+' => 'Azure network card',
+	'Class:AzureNetworkInterface' => 'Network Interface',
+	'Class:AzureNetworkInterface+' => 'Azure network interface',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Azure VM',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',

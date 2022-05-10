@@ -328,8 +328,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureNetworkInterface
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureNetworkInterface' => 'Network Card',
-	'Class:AzureNetworkInterface+' => 'Azure network card',
+	'Class:AzureNetworkInterface' => 'Network Interface',
+	'Class:AzureNetworkInterface+' => 'Azure network interface',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Azure VM',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
@@ -400,7 +400,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list' => 'Identities',
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azureinterfaces_list' => 'NICs',
-	'Class:AzureResourceGroup/Attribute:azureinterfaces_list+' => 'Network cards',
+	'Class:AzureResourceGroup/Attribute:azureinterfaces_list+' => 'Network interfaces',
 	'Class:AzureResourceGroup/Attribute:azureiots_list' => 'IoTs',
 	'Class:AzureResourceGroup/Attribute:azureiots_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azureloadbalancers_list' => 'Load balancers',
