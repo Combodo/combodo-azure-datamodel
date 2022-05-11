@@ -418,10 +418,10 @@
       <presentation>
         <list>
           <items>
-            <item id="name">
+            <item id="subscriptionid">
               <rank>10</rank>
             </item>
-            <item id="subscriptionid">
+            <item id="discover_objects">
               <rank>20</rank>
             </item>
             <item id="org_id">
