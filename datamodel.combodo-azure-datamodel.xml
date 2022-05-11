@@ -1377,12 +1377,6 @@
         <icon>assets/img/icons8-serveur-48.png</icon>
       </properties>
       <fields>
-        <field id="azuremariadbs_list" xsi:type="AttributeLinkedSet">
-          <linked_class>AzureMariaDB</linked_class>
-          <ext_key_to_me>azuredbserver_id</ext_key_to_me>
-          <tracking_level>list</tracking_level>
-          <edit_mode>in_place</edit_mode>
-        </field>
         <field id="version" xsi:type="AttributeString">
           <sql>version</sql>
           <default_value/>
@@ -1435,7 +1429,76 @@
           <tracking_level>all</tracking_level>
         </field>
       </fields>
-      <methods/>
+      <methods>
+        <method id="DisplayBareRelations">
+          <comment/>
+          <static>false</static>
+          <access>public</access>
+          <type>Overload-DBObject</type>
+        <code><![CDATA[	public function DisplayBareRelations(WebPage $oP, $bEditMode = false)
+	{
+        parent::DisplayBareRelations($oP, $bEditMode);
+
+        if (! $bEditMode)
+        {
+            $iDBServerId = $this->GetKey();
+            $sType = $this->Get('type');
+            switch ($sType) {
+                case 'mariadb':
+                    $sOQL = "SELECT AzureMariaDB WHERE azuredbserver_id = :id";
+                    break;
+
+                case 'postgre':
+                    $sOQL = "SELECT AzurePostgreSQL WHERE azuredbserver_id = :id";
+                    break;
+
+                case 'mysql':
+                    $sOQL = "SELECT AzureMySQL WHERE azuredbserver_id = :id";
+                    break;
+
+                case 'mssql':
+                    $sOQL = "SELECT AzureMSSQL WHERE azuredbserver_id = :id";
+                    break;
+
+                default:
+                    $sOQL = '';
+                    break;
+            }
+            if ($sOQL != '') {
+                $oLnkSet =  new CMDBObjectSet(DBObjectSearch::FromOQL($sOQL), array(), array('id' => $iDBServerId));
+                $iDBs = $oLnkSet->Count();
+                if ($iDBs > 0)
+                {
+                    $oP->SetCurrentTab(Dict::S('Class:AzureDBServer/Tab:azuredatabases_list').' ('.$iDBs.')');
+                    $oP->p(MetaModel::GetClassIcon('AzureDB').'&nbsp;'.Dict::S('Class:AzureDBServer/Tab:azuredatabases_list+'));
+                    $oBlock = new DisplayBlock($oLnkSet->GetFilter(), 'list', false);
+                    $oBlock->Display($oP, 'dbserver_db', array('menu' => false, 'view_link' => false));
+                }
+            }
+            if (($sOQL == '') || ($iDBs == 0)) {
+                $oP->SetCurrentTab(Dict::S('Class:AzureDBServer/Tab:azuredatabases_list'));
+                $oP->p(MetaModel::GetClassIcon('AzureDB').'&nbsp;'.Dict::S('UI:NoObjectToDisplay'));
+            }
+	    }
+	}]]></code>
+        </method>
+      </methods>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="azuredb">
+              <query_up>SELECT AzureDBServer AS s JOIN AzureMariaDB AS db ON db.azuredbserver_id = s.id WHERE s.id = :this->id
+                UNION SELECT AzureDBServer AS s JOIN AzurePostgreSQL AS db ON db.azuredbserver_id = s.id WHERE s.id = :this->id
+                UNION SELECT AzureDBServer AS s JOIN AzureMySQL AS db ON db.azuredbserver_id = s.id WHERE s.id = :this->id
+                UNION SELECT AzureDBServer AS s JOIN AzureMSSQL AS db ON db.azuredbserver_id = s.id WHERE s.id = :this->id</query_up>
+              <query_down>SELECT AzureMariaDB WHERE azuredbserver_id = :this->id
+                UNION SELECT AzurePostgreSQL WHERE azuredbserver_id = :this->id
+                UNION SELECT AzureMySQL WHERE azuredbserver_id = :this->id
+                UNION SELECT AzureMSSQL WHERE azuredbserver_id = :this->id</query_down>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <presentation>
         <list>
           <items>
@@ -1565,9 +1628,6 @@
             <item id="applicationsolution_list">
               <rank>50</rank>
             </item>
-            <item id="azuremariadbs_list">
-              <rank>60</rank>
-            </item>
           </items>
         </details>
         <default_search>
@@ -1596,16 +1656,6 @@
           </items>
         </default_search>
       </presentation>
-      <relations>
-        <relation id="impacts">
-          <neighbours>
-            <neighbour id="azuremariadbs">
-              <attribute>azuremariadbs_list</attribute>
-              <direction>both</direction>
-            </neighbour>
-          </neighbours>
-        </relation>
-      </relations>
     </class>
     <class id="AzureMariaDB" _delta="define">
       <parent>AzureDB</parent>
@@ -1631,8 +1681,12 @@
       <fields>
         <field id="azuredbserver_id" xsi:type="AttributeExternalKey">
           <sql>azuredbserver_id</sql>
-          <filter>SELECT AzureDBServer WHERE type = 'mariadb'</filter>
-          <dependencies/>
+          <filter>SELECT AzureDBServer WHERE type = 'mariadb' AND org_id = :this->org_id AND azuresubscription_id = :this->azuresubscription_id AND azureresourcegroup_id = :this->azureresourcegroup_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+            <attribute id="azuresubscription_id"/>
+            <attribute id="azureresourcegroup_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureDBServer</target_class>
           <on_target_delete>DEL_AUTO</on_target_delete>
@@ -1660,6 +1714,16 @@
         </field>
       </fields>
       <methods/>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="azuredbserver">
+              <query_up>SELECT AzureDBServer WHERE id = :this->azuredbserver_id</query_up>
+              <query_down>SELECT AzureMariaDB AS db JOIN AzureDBServer AS s ON db.azuredbserver_id = s.id WHERE db.id = :this->id</query_down>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <presentation>
         <list>
           <items>
@@ -1839,8 +1903,12 @@
       <fields>
         <field id="azuredbserver_id" xsi:type="AttributeExternalKey">
           <sql>azuredbserver_id</sql>
-          <filter>SELECT AzureDBServer WHERE type = 'postgre'</filter>
-          <dependencies/>
+          <filter>SELECT AzureDBServer WHERE type = 'postgre' AND org_id = :this->org_id AND azuresubscription_id = :this->azuresubscription_id AND azureresourcegroup_id = :this->azureresourcegroup_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+            <attribute id="azuresubscription_id"/>
+            <attribute id="azureresourcegroup_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureDBServer</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -1868,6 +1936,16 @@
         </field>
       </fields>
       <methods/>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="azuredbserver">
+              <query_up>SELECT AzureDBServer WHERE id = :this->azuredbserver_id</query_up>
+              <query_down>SELECT AzurePostgreSQL AS db JOIN AzureDBServer AS s ON db.azuredbserver_id = s.id WHERE db.id = :this->id</query_down>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <presentation>
         <list>
           <items>
@@ -2050,8 +2128,12 @@
       <fields>
         <field id="azuredbserver_id" xsi:type="AttributeExternalKey">
           <sql>azuredbserver_id</sql>
-          <filter>SELECT AzureDBServer WHERE type = 'postgre'</filter>
-          <dependencies/>
+          <filter>SELECT AzureDBServer WHERE type = 'mysql' AND org_id = :this->org_id AND azuresubscription_id = :this->azuresubscription_id AND azureresourcegroup_id = :this->azureresourcegroup_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+            <attribute id="azuresubscription_id"/>
+            <attribute id="azureresourcegroup_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureDBServer</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -2079,6 +2161,16 @@
         </field>
       </fields>
       <methods/>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="azuredbserver">
+              <query_up>SELECT AzureDBServer WHERE id = :this->azuredbserver_id</query_up>
+              <query_down>SELECT AzureMySQL AS db JOIN AzureDBServer AS s ON db.azuredbserver_id = s.id WHERE db.id = :this->id</query_down>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <presentation>
         <list>
           <items>
@@ -2261,8 +2353,12 @@
       <fields>
         <field id="azuredbserver_id" xsi:type="AttributeExternalKey">
           <sql>azuredbserver_id</sql>
-          <filter>SELECT AzureDBServer WHERE type = 'postgre'</filter>
-          <dependencies/>
+          <filter>SELECT AzureDBServer WHERE type = 'mssql' AND org_id = :this->org_id AND azuresubscription_id = :this->azuresubscription_id AND azureresourcegroup_id = :this->azureresourcegroup_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+            <attribute id="azuresubscription_id"/>
+            <attribute id="azureresourcegroup_id"/>
+          </dependencies>
           <is_null_allowed>true</is_null_allowed>
           <target_class>AzureDBServer</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -2290,6 +2386,16 @@
         </field>
       </fields>
       <methods/>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="azuredbserver">
+              <query_up>SELECT AzureDBServer WHERE id = :this->azuredbserver_id</query_up>
+              <query_down>SELECT AzureMSSQL AS db JOIN AzureDBServer AS s ON db.azuredbserver_id = s.id WHERE db.id = :this->id</query_down>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <presentation>
         <list>
           <items>
