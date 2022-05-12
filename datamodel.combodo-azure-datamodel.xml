@@ -3938,7 +3938,6 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon>assets/img/10035-icon-service-App-Services.svg</icon>
       </properties>
       <fields>
         <field id="ftps_hostname" xsi:type="AttributeString">
