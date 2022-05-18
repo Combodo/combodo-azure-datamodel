@@ -484,8 +484,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 // AzureStorageAccount
 //
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:AzureStorageAccount' => 'Comptes de stockage',
-	'Class:AzureStorageAccount+' => 'Comptes de stockage Azure',
+	'Class:AzureStorageAccount' => 'Compte de stockage',
+	'Class:AzureStorageAccount+' => 'Compte de stockage Azure',
 	'Class:AzureStorageAccount/Name' => '%1$s',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id' => 'App service',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id+' => '',
