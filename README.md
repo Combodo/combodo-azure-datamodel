@@ -1,4 +1,4 @@
-# Extension Azure Data model
+# Extension Data model for Microsoft Azure
 
 ## About
 
@@ -8,7 +8,7 @@ modelize main Azure objects contained in subscriptions and resource groups, like
 If properly documented, these objects will help people in charge of the change process of you company to better understand the real impact
 that a modification may have on you Azure infrastructure and the services that it delivers.
 
-For an optimal usage, this extension should be used with the "Data collector for Azure" that will automatically and regularly discover Azure
+For an optimal usage, this extension should be used with the "Data collector for Microsoft Azure" that will automatically and regularly discover Azure
 objects in their environement and load them in iTop. This ETL will insure that your data are always up to date in iTop.
 
 For more information about this module have a look at the
