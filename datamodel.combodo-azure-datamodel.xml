@@ -189,7 +189,7 @@
           <sql>country</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
-          <validation_pattern>Country/Region</validation_pattern>
+          <validation_pattern/>
           <tracking_level>all</tracking_level>
         </field>
         <field id="tenantid" xsi:type="AttributeString">
@@ -5113,22 +5113,24 @@
 				                    $sUrl = str_replace('$azureid$', $oObj->Get('azureid'), $sUrl);
 				                    $sUrl = str_replace('$azuretenant$', $sTenantName, $sUrl);
 
-						            // Build tooltip
-						            $sTooltip = array_key_exists('tooltip', $aDirectAccessParams) ? $aDirectAccessParams['tooltip'] : '';
+				                    // Build tooltip
+				                    $sTooltip = array_key_exists('tooltip', $aDirectAccessParams) ? $aDirectAccessParams['tooltip'] : '';
 
-						            // Build icon
-						            $sIcon = array_key_exists('icon', $aDirectAccessParams) ? $aDirectAccessParams['icon'] : static::AZURE_DEFAULT_MENU_ICON;
+				                    // Build icon
+				                    $sIcon = array_key_exists('icon', $aDirectAccessParams) ? $aDirectAccessParams['icon'] : static::AZURE_DEFAULT_MENU_ICON;
 
-						            // Build target page
-						            $sTarget = array_key_exists('target', $aDirectAccessParams) ? $aDirectAccessParams['target'] : '_blank';
+				                    // Build target page
+				                    $sTarget = array_key_exists('target', $aDirectAccessParams) ? $aDirectAccessParams['target'] : '_blank';
 
-						            $oButton = new URLButtonItem('azure_integration', $sLabel, $sUrl, $sTarget);
-						            $oButton->SetIconClass($sIcon);
-						            $oButton->SetTooltip($sTooltip);
-						            $aResult[] = $oButton;
+				                    $oButton = new URLButtonItem('azure_integration', $sLabel, $sUrl, $sTarget);
+				                    if (version_compare(ITOP_DESIGN_LATEST_VERSION, '3.0', '>=')) {
+				                        $oButton->SetIconClass($sIcon);
+				                        $oButton->SetTooltip($sTooltip);
+				                    }
+				                    $aResult[] = $oButton;
 				                }
 			        		}
-                        }
+		        		}
 					}
 				}
 				break;
