@@ -335,7 +335,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
 	'Class:AzureNetworkInterface/Attribute:azurevnet_id' => 'VNet',
 	'Class:AzureNetworkInterface/Attribute:azurevnets_list' => 'VNets',
-	'Class:AzureNetworkInterface/Attribute:azurevnets_list+' => '',
+	'Class:AzureNetworkInterface/Attribute:azurevnets_list+' => 'List of Network Interfaces in the VNet',
 	'Class:AzureNetworkInterface/Attribute:contract_id' => 'Subscription',
 	'Class:AzureNetworkInterface/Attribute:move2production' => 'Move to production date',
 	'Class:AzureNetworkInterface/Attribute:primaryprivateip' => 'Primary private IP',
@@ -344,6 +344,37 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureNetworkInterface/Attribute:secondaryprivateip2' => 'Secondary private IP #2',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip1' => 'Secondary public IP #1',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip2' => 'Secondary public IP #2',
+	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+));
+
+//
+// AzureNetworkInterfaceIPConfig
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzureNetworkInterfaceIPConfig' => 'NIC IP Config',
+	'Class:AzureNetworkInterfaceIPConfig+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Name' => '%1$s',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id' => 'Network card',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version' => 'Private IP version',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip' => 'Private IP',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:primary' => 'Primary',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:primary+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:true' => 'True',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:false' => 'False',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id+' => '',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id' => 'Public IP',
+	'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
@@ -377,6 +408,32 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_tier+' => '',
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_version' => 'Version',
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_version+' => '',
+));
+
+//
+// AzurePublicIPAddress
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzurePublicIPAddress' => 'Azure Public IP Address',
+	'Class:AzurePublicIPAddress+' => '',
+	'Class:AzurePublicIPAddress/Name' => '%1$s',
+	'Class:AzurePublicIPAddress/Name+' => '',
+	'Class:AzurePublicIPAddress/Attribute:version' => 'Version',
+	'Class:AzurePublicIPAddress/Attribute:version+' => '',
+	'Class:AzurePublicIPAddress/Attribute:version/Value:ipv4' => 'IPv4',
+	'Class:AzurePublicIPAddress/Attribute:version/Value:ipv6' => 'IPv6',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method' => 'Allocation method',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method+' => '',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:static' => 'Static',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:dynamic' => 'Dynamic',
+	'Class:AzurePublicIPAddress/Attribute:ip' => 'Address',
+	'Class:AzurePublicIPAddress/Attribute:ip+' => '',
+	'Class:AzurePublicIPAddress/Attribute:short_name' => 'Short Name',
+	'Class:AzurePublicIPAddress/Attribute:short_name+' => '',
+	'Class:AzurePublicIPAddress/Attribute:fqdn' => 'FQDN',
+	'Class:AzurePublicIPAddress/Attribute:fqdn+' => '',
+	'Class:AzurePublicIPAddress/Attribute:nicipconfig_id' => 'NIC IP Config',
+	'Class:AzurePublicIPAddress/Attribute:nicipconfig_id+' => 'NIC IP Config that host the IP address',
 ));
 
 //
@@ -420,9 +477,9 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureResourceGroup/Attribute:azurewebs_list+' => '',
 	'Class:AzureResourceGroup/Attribute:business_criticity' => 'Business criticality',
 	'Class:AzureResourceGroup/Attribute:business_criticity+' => '',
-	'Class:AzureResourceGroup/Attribute:business_criticity/Value:high' => 'High',
-	'Class:AzureResourceGroup/Attribute:business_criticity/Value:low' => 'Low',
-	'Class:AzureResourceGroup/Attribute:business_criticity/Value:medium' => 'Medium',
+	'Class:AzureResourceGroup/Attribute:business_criticity / Value:high' => 'High',
+	'Class:AzureResourceGroup/Attribute:business_criticity / Value:low' => 'Low',
+	'Class:AzureResourceGroup/Attribute:business_criticity / Value:medium' => 'Medium',
 	'Class:AzureResourceGroup/Attribute:contacts_list' => 'Contacts',
 	'Class:AzureResourceGroup/Attribute:contacts_list+' => '',
 	'Class:AzureResourceGroup/Attribute:description' => 'Description',
@@ -440,11 +497,11 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureResourceGroup/Attribute:organization_name' => 'Organization name',
 	'Class:AzureResourceGroup/Attribute:organization_name+' => '',
 	'Class:AzureResourceGroup/Attribute:provisioning_status' => 'Provisioning status',
-	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:canceled' => 'Canceled',
-	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:deleting' => 'Deleting',
-	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:failed' => 'Failed',
-	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:inprogress' => 'In progress',
-	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:succeeded' => 'Succeeded',
+	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:canceled' => 'Canceled',
+	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:deleting' => 'Deleting',
+	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:failed' => 'Failed',
+	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:inprogress' => 'In progress',
+	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:succeeded' => 'Succeeded',
 ));
 
 //
@@ -475,8 +532,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureStorage
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureStorage' => 'Azure Storage',
-	'Class:AzureStorage+' => '',
+	'Class:AzureStorage' => 'Storage',
+	'Class:AzureStorage+' => 'Azure Storage',
 	'Class:AzureStorage/Name' => '%1$s',
 ));
 
@@ -493,10 +550,29 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureStorageAccount/Attribute:tier+' => '',
 	'Class:AzureStorageAccount/Attribute:type' => 'Type',
 	'Class:AzureStorageAccount/Attribute:type+' => '',
-	'Class:AzureStorageAccount/Attribute:type/Value:blob' => 'Blob',
-	'Class:AzureStorageAccount/Attribute:type/Value:queue' => 'Queue',
-	'Class:AzureStorageAccount/Attribute:type/Value:table' => 'Table',
-	'Class:AzureStorageAccount/Attribute:type/Value:file' => 'File',
+	'Class:AzureStorageAccount/Attribute:type / Value:blob' => 'Blob',
+	'Class:AzureStorageAccount/Attribute:type / Value:queue' => 'Queue',
+	'Class:AzureStorageAccount/Attribute:type / Value:table' => 'Table',
+	'Class:AzureStorageAccount/Attribute:type / Value:file' => 'File',
+));
+
+//
+// AzureSubnet
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzureSubnet' => 'Subnet',
+	'Class:AzureSubnet+' => 'Azure Subnet',
+	'Class:AzureSubnet/Name' => '%1$s',
+	'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
+	'Class:AzureSubnet/Attribute:ip+' => '',
+	'Class:AzureSubnet/Attribute:mask' => 'Mask',
+	'Class:AzureSubnet/Attribute:mask+' => '',
+	'Class:AzureSubnet/Attribute:azurevnet_id' => 'VNet',
+	'Class:AzureSubnet/Attribute:azurevnet_id+' => 'Azure Virtual Network that the subnet belongs to',
+	'Class:AzureSubnet/Attribute:azureci_id' => 'Delegated to',
+	'Class:AzureSubnet/Attribute:azureci_id+' => 'Azure service to which the subnet is delegated to',
+	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
 ));
 
 //
@@ -530,8 +606,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureSubscription/Attribute:azureusers_list+' => '',
 	'Class:AzureSubscription/Attribute:discover_objects' => 'Discover objects',
 	'Class:AzureSubscription/Attribute:discover_objects+' => 'Discover objects link to this subscription',
-	'Class:AzureSubscription/Attribute:discover_objects/Value:no' => 'No',
-	'Class:AzureSubscription/Attribute:discover_objects/Value:yes' => 'Yes',
+	'Class:AzureSubscription/Attribute:discover_objects / Value:no' => 'No',
+	'Class:AzureSubscription/Attribute:discover_objects / Value:yes' => 'Yes',
 	'Class:AzureSubscription/Attribute:subscriptionid' => 'ID',
 	'Class:AzureSubscription/Attribute:subscriptionid+' => '',
 ));
@@ -552,7 +628,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureTenant/Attribute:azureusers_list' => 'Users',
 	'Class:AzureTenant/Attribute:azureusers_list+' => '',
 	'Class:AzureTenant/Attribute:country' => 'Country',
-	'Class:AzureTenant/Attribute:country+' => 'Country/Region',
+	'Class:AzureTenant/Attribute:country+' => 'Country / Region',
 	'Class:AzureTenant/Attribute:description' => 'Description',
 	'Class:AzureTenant/Attribute:description+' => '',
 	'Class:AzureTenant/Attribute:domain' => 'Domain name',
@@ -561,8 +637,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureTenant/Attribute:tenantid+' => '',
 	'Class:AzureTenant/Attribute:type' => 'Type',
 	'Class:AzureTenant/Attribute:type+' => '',
-	'Class:AzureTenant/Attribute:type/Value:AAD-B2C' => 'Azure Active Directory (B2C)',
-	'Class:AzureTenant/Attribute:type/Value:AAD' => 'Azure Active Directory',
+	'Class:AzureTenant/Attribute:type / Value:AAD - B2C' => 'Azure Active Directory(B2C)',
+	'Class:AzureTenant/Attribute:type / Value:AAD' => 'Azure Active Directory',
 	'Class:AzureTenant/Attribute:azuresubscriptions_list' => 'Subscriptions',
 ));
 
@@ -597,11 +673,11 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVirtualMachine/Attribute:osversion_id' => 'OS version',
 	'Class:AzureVirtualMachine/Attribute:provisioning_status' => 'Provisioning status',
 	'Class:AzureVirtualMachine/Attribute:provisioning_status+' => '',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:canceled' => 'Canceled',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:deleting' => 'Deleting',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:failed' => 'Failed',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:inprogress' => 'In progress',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:succeeded' => 'Succeeded',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:canceled' => 'Canceled',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:deleting' => 'Deleting',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:failed' => 'Failed',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:inprogress' => 'In progress',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:succeeded' => 'Succeeded',
 	'Class:AzureVirtualMachine/Attribute:softwareinstances_list' => 'Software instances',
 	'Class:AzureVirtualMachine/Attribute:zone_id' => 'Zone',
 	'Class:AzureVirtualMachine/Attribute:zone_id+' => 'Availability zone',
@@ -630,6 +706,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVNet/Attribute:address_space+' => '',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list+' => '',
+	'Class:AzureVNet/Attribute:azuresubnets_list' => 'Subnets',
+	'Class:AzureVNet/Attribute:azuresubnets_list+' => '',
 ));
 
 //
