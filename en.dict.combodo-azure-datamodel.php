@@ -8,7 +8,7 @@
 // AzureAppService
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureAppService' => 'App Service',
+	'Class:AzureAppService' => 'Azure App Service',
 	'Class:AzureAppService+' => '',
 	'Class:AzureAppService/Name' => '%1$s',
 	'Class:AzureAppService/Attribute:app_service_plan' => 'App service plan',
@@ -139,8 +139,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureDisk
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureDisk' => 'Disk',
-	'Class:AzureDisk+' => 'Azure Disk',
+	'Class:AzureDisk' => 'Azure Disk',
+	'Class:AzureDisk+' => '',
 	'Class:AzureDisk/Name' => '%1$s',
 	'Class:AzureDisk/Attribute:azuredisktype_id' => 'Size type',
 	'Class:AzureDisk/Attribute:azurestatus' => 'State',
@@ -209,8 +209,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureKubernetesService
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureKubernetesService' => 'Kubernetes Service (AKS)',
-	'Class:AzureKubernetesService+' => 'Azure Kubernetes Service - AKS',
+	'Class:AzureKubernetesService' => 'Azure Kubernetes Service (AKS)',
+	'Class:AzureKubernetesService+' => '',
 	'Class:AzureKubernetesService/Name' => '%1$s',
 	'Class:AzureKubernetesService/Attribute:fqdn' => 'FQDN',
 	'Class:AzureKubernetesService/Attribute:fqdn+' => '',
@@ -232,8 +232,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureLoadBalancer
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureLoadBalancer' => 'Load Balancer',
-	'Class:AzureLoadBalancer+' => 'Azure Load Balancer',
+	'Class:AzureLoadBalancer' => 'Azure Load Balancer',
+	'Class:AzureLoadBalancer+' => '',
 	'Class:AzureLoadBalancer/Name' => '%1$s',
 	'Class:AzureLoadBalancer/Attribute:ipaddress' => 'Front IP address',
 	'Class:AzureLoadBalancer/Attribute:sku' => 'SKU',
@@ -244,13 +244,37 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureLoadBalancer/Attribute:type/Value:public' => 'public',
 	'Class:AzureLoadBalancer/Attribute:zone_id' => 'Zone',
 	'Class:AzureLoadBalancer/Attribute:zone_id+' => 'Azure availability Zone',
+	'Class:AzureLoadBalancer/Attribute:azureloadbalancerfrontendipconfigs_list' => 'Frontend IP Configs',
+));
+
+//
+// AzureLoadBalancerFrontendIPConfig
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzureLoadBalancerFrontendIPConfig' => 'Azure LB Frontend IP Config',
+	'Class:AzureLoadBalancerFrontendIPConfig+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Name' => '%1$s',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id' => 'Load Balancer',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version' => 'Private IP version',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip' => 'Private IP',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id+' => '',
 ));
 
 //
 // AzureMariaDB
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureMariaDB' => 'MariaDB Database',
+	'Class:AzureMariaDB' => 'Azure MariaDB Database',
 	'Class:AzureMariaDB+' => 'Azure Database for MariaDB',
 	'Class:AzureMariaDB/Name' => '%1$s',
 	'Class:AzureMariaDB/Attribute:azure_status' => 'Azure status',
@@ -273,7 +297,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureMSSQL
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureMSSQL' => 'MS SQL Database',
+	'Class:AzureMSSQL' => 'Azure MS SQL Database',
 	'Class:AzureMSSQL+' => 'Azure Database for Microsoft SQL',
 	'Class:AzureMSSQL/Name' => '%1$s',
 	'Class:AzureMSSQL/Attribute:azure_status' => 'Azure status',
@@ -296,7 +320,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureMySQL
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureMySQL' => 'MySQL Database',
+	'Class:AzureMySQL' => 'Azure MySQL Database',
 	'Class:AzureMySQL+' => 'Azure Database for MySQL',
 	'Class:AzureMySQL/Name' => '%1$s',
 	'Class:AzureMySQL/Attribute:azure_status' => 'Azure status',
@@ -328,8 +352,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureNetworkInterface
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureNetworkInterface' => 'Network Interface',
-	'Class:AzureNetworkInterface+' => 'Azure network interface',
+	'Class:AzureNetworkInterface' => 'Azure Network Interface',
+	'Class:AzureNetworkInterface+' => '',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Azure VM',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
@@ -352,7 +376,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureNetworkInterfaceIPConfig
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureNetworkInterfaceIPConfig' => 'NIC IP Config',
+	'Class:AzureNetworkInterfaceIPConfig' => 'Azure NIC IP Config',
 	'Class:AzureNetworkInterfaceIPConfig+' => '',
 	'Class:AzureNetworkInterfaceIPConfig/Name' => '%1$s',
 	'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id' => 'Network card',
@@ -391,7 +415,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzurePostgreSQL
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzurePostgreSQL' => 'PostgreSQL',
+	'Class:AzurePostgreSQL' => 'Azure PostgreSQL',
 	'Class:AzurePostgreSQL+' => '',
 	'Class:AzurePostgreSQL/Name' => '%1$s',
 	'Class:AzurePostgreSQL/Attribute:azure_status' => 'Azure status',
@@ -440,7 +464,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureResourceGroup
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureResourceGroup' => 'Resource Group',
+	'Class:AzureResourceGroup' => 'Azure Resource Group',
 	'Class:AzureResourceGroup+' => '',
 	'Class:AzureResource/Name' => '%1$s',
 	'Class:AzureResource/Name+' => '',
@@ -532,8 +556,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureStorage
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureStorage' => 'Storage',
-	'Class:AzureStorage+' => 'Azure Storage',
+	'Class:AzureStorage' => 'Azure Storage',
+	'Class:AzureStorage+' => '',
 	'Class:AzureStorage/Name' => '%1$s',
 ));
 
@@ -541,8 +565,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureStorageAccount
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureStorageAccount' => 'Storage Account',
-	'Class:AzureStorageAccount+' => 'Azure Storage Account',
+	'Class:AzureStorageAccount' => 'Azure Storage Account',
+	'Class:AzureStorageAccount+' => '',
 	'Class:AzureStorageAccount/Name' => '%1$s',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id' => 'App service',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id+' => '',
@@ -560,8 +584,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureSubnet
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureSubnet' => 'Subnet',
-	'Class:AzureSubnet+' => 'Azure Subnet',
+	'Class:AzureSubnet' => 'Azure Subnet',
+	'Class:AzureSubnet+' => '',
 	'Class:AzureSubnet/Name' => '%1$s',
 	'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
 	'Class:AzureSubnet/Attribute:ip+' => '',
@@ -579,8 +603,8 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureSubscription
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureSubscription' => 'Subscription',
-	'Class:AzureSubscription+' => 'Azure Subscription',
+	'Class:AzureSubscription' => 'Azure Subscription',
+	'Class:AzureSubscription+' => '',
 	'Class:AzureSubscription/Name' => '%1$s',
 	'Class:AzureSubscription/Name+' => '',
 	'AzureSubscription:baseinfo' => 'General information',
@@ -616,7 +640,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureTenant
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureTenant' => 'Tenant',
+	'Class:AzureTenant' => 'Azure Tenant',
 	'Class:AzureTenant+' => '',
 	'Class:AzureTenant/Name' => '%1$s',
 	'Class:AzureTenant/Name+' => '',
@@ -699,7 +723,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureVNet
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureVNet' => 'VNet',
+	'Class:AzureVNet' => 'Azure VNet',
 	'Class:AzureVNet+' => 'Azure Virtual network',
 	'Class:AzureVNet/Name' => '%1$s',
 	'Class:AzureVNet/Attribute:address_space' => 'Address space',
@@ -714,7 +738,7 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzureVNetGateway
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzureVNetGateway' => 'VNet Gateway',
+	'Class:AzureVNetGateway' => 'Azure VNet Gateway',
 	'Class:AzureVNetGateway+' => 'Azure Virtual Network Gateway',
 	'Class:AzureVNetGateway/Name' => '%1$s',
 ));
@@ -743,4 +767,10 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 Dict::Add('EN US', 'English', 'English', array(
 	'Menu:ConfigManagement:Azure' => 'Azure Cloud',
+	'Menu:Azure:General' => 'General',
+	'Menu:Azure:Compute' => 'Compute',
+	'Menu:Azure:Storage' => 'Storage',
+	'Menu:Azure:Database' => 'Database',
+	'Menu:Azure:Container' => 'Container',
+	'Menu:Azure:Networking' => 'Networking',
 ));
