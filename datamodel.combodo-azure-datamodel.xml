@@ -3557,6 +3557,12 @@
           <dependencies/>
           <tracking_level>all</tracking_level>
         </field>
+        <field id="azureloadbalancerfrontendipconfigs_list" xsi:type="AttributeLinkedSet">
+          <linked_class>AzureLoadBalancerFrontendIPConfig</linked_class>
+          <ext_key_to_me>azureloadbalancer_id</ext_key_to_me>
+          <tracking_level>list</tracking_level>
+          <edit_mode/>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -3678,6 +3684,9 @@
             </item>
             <item id="applicationsolution_list">
               <rank>50</rank>
+            </item>
+            <item id="azureloadbalancerfrontendipconfigs_list">
+              <rank>60</rank>
             </item>
           </items>
         </details>
@@ -5753,99 +5762,410 @@
         </default_search>
       </presentation>
     </class>
+    <class id="AzureLoadBalancerFrontendIPConfig" _delta="define">
+      <parent>AzureNetworking</parent>
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <db_table>azureloadbalancerfrontendipconfig</db_table>
+        <naming>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+            <attribute id="org_id"/>
+            <attribute id="organization_name"/>
+            <attribute id="finalclass"/>
+          </attributes>
+        </reconciliation>
+        <icon></icon>
+      </properties>
+      <fields>
+        <field id="azureloadbalancer_id" xsi:type="AttributeExternalKey">
+          <sql>azureloadbalancer_id</sql>
+          <filter/>
+          <dependencies/>
+          <is_null_allowed>false</is_null_allowed>
+          <target_class>AzureLoadBalancer</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="private_ip_version" xsi:type="AttributeEnum">
+          <sql>private_ip_version</sql>
+          <values>
+            <value id="ipv4">ipv4</value>
+            <value id="ipv6">ipv6</value>
+          </values>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+          <display_style>radio_horizontal</display_style>
+          <dependencies/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="private_ip_allocation_method" xsi:type="AttributeEnum">
+          <sql>private_ip_allocation_method</sql>
+          <values>
+            <value id="static">static</value>
+            <value id="dynamic">dynamic</value>
+          </values>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+          <display_style>radio_horizontal</display_style>
+          <dependencies/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="private_ip" xsi:type="AttributeString">
+          <sql>private_ip</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="azuresubnet_id" xsi:type="AttributeExternalKey">
+          <sql>azuresubnet_id</sql>
+          <filter/>
+          <dependencies/>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>AzureSubnet</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list>
+          <items>
+            <item id="finalclass">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="azuresubscription_id">
+              <rank>30</rank>
+            </item>
+            <item id="azureresourcegroup_id">
+              <rank>40</rank>
+            </item>
+            <item id="azureloadbalancer_id">
+              <rank>50</rank>
+            </item>
+            <item id="status">
+              <rank>60</rank>
+            </item>
+            <item id="business_criticity">
+              <rank>70</rank>
+            </item>
+            <item id="azureid">
+              <rank>80</rank>
+            </item>
+            <item id="private_ip">
+              <rank>90</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="business_criticity">
+              <rank>30</rank>
+            </item>
+            <item id="move2production">
+              <rank>40</rank>
+            </item>
+          </items>
+        </search>
+        <details>
+          <items>
+            <item id="col:col0">
+              <items>
+                <item id="fieldset:AzureCI:baseinfo">
+                  <items>
+                    <item id="name">
+                      <rank>10</rank>
+                    </item>
+                    <item id="org_id">
+                      <rank>20</rank>
+                    </item>
+                    <item id="status">
+                      <rank>30</rank>
+                    </item>
+                    <item id="azuresubscription_id">
+                      <rank>40</rank>
+                    </item>
+                    <item id="azureresourcegroup_id">
+                      <rank>50</rank>
+                    </item>
+                    <item id="business_criticity">
+                      <rank>60</rank>
+                    </item>
+                  </items>
+                  <rank>10</rank>
+                </item>
+                <item id="fieldset:AzureCI:moreinfo">
+                  <items>
+                    <item id="azureloadbalancer_id">
+                      <rank>10</rank>
+                    </item>
+                    <item id="azuresubnet_id">
+                      <rank>20</rank>
+                    </item>
+                    <item id="private_ip">
+                      <rank>30</rank>
+                    </item>
+                    <item id="private_ip_version">
+                      <rank>40</rank>
+                    </item>
+                    <item id="private_ip_allocation_method">
+                      <rank>50</rank>
+                    </item>
+                  </items>
+                  <rank>20</rank>
+                </item>
+              </items>
+              <rank>10</rank>
+            </item>
+            <item id="col:col1">
+              <items>
+                <item id="fieldset:AzureCI:otherinfo">
+                  <items>
+                    <item id="provisioning_status">
+                      <rank>10</rank>
+                    </item>
+                    <item id="move2production">
+                      <rank>20</rank>
+                    </item>
+                    <item id="description">
+                      <rank>30</rank>
+                    </item>
+                    <item id="azureid">
+                      <rank>40</rank>
+                    </item>
+                  </items>
+                  <rank>10</rank>
+                </item>
+              </items>
+              <rank>20</rank>
+            </item>
+            <item id="contacts_list">
+              <rank>30</rank>
+            </item>
+            <item id="documents_list">
+              <rank>40</rank>
+            </item>
+            <item id="applicationsolution_list">
+              <rank>50</rank>
+            </item>
+          </items>
+        </details>
+        <default_search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="azuresubscription_id">
+              <rank>30</rank>
+            </item>
+            <item id="azureresourcegroup_id">
+              <rank>40</rank>
+            </item>
+            <item id="status">
+              <rank>50</rank>
+            </item>
+            <item id="azureloadbalancer_id">
+              <rank>60</rank>
+            </item>
+            <item id="azureid">
+              <rank>70</rank>
+            </item>
+          </items>
+        </default_search>
+      </presentation>
+    </class>
   </classes>
   <dictionaries/>
   <menus>
-    <menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _created_in="itop-config-mgmt" _delta="must_exist">
+    <menu id="ConfigManagement:Azure" xsi:type="DashboardMenuNode" _delta="define">
+      <rank>100</rank>
+      <parent>ConfigManagementOverview</parent>
       <definition>
-        <cells xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" _delta="must_exist">
-          <cell id="Azure" _delta="define">
-            <rank>1.8</rank>
+        <cells>
+          <cell id="1">
+            <rank>1</rank>
             <dashlets>
-              <dashlet id="AzureHeader" xsi:type="DashletHeaderStatic">
+              <dashlet id="10" xsi:type="DashletHeaderStatic">
                 <rank>0</rank>
-                <title>Menu:ConfigManagement:Azure</title>
+                <title>Menu:Azure:General</title>
                 <icon>combodo-azure-datamodel/assets/img/icons8-azure.svg</icon>
               </dashlet>
-              <dashlet id="AzureTenant" xsi:type="DashletBadge">
+              <dashlet id="11" xsi:type="DashletBadge">
                 <rank>1</rank>
                 <class>AzureTenant</class>
               </dashlet>
-              <dashlet id="AzureSubscription" xsi:type="DashletBadge">
+              <dashlet id="12" xsi:type="DashletBadge">
                 <rank>2</rank>
                 <class>AzureSubscription</class>
               </dashlet>
-              <dashlet id="AzureResourceGroup" xsi:type="DashletBadge">
+              <dashlet id="13" xsi:type="DashletBadge">
                 <rank>3</rank>
                 <class>AzureResourceGroup</class>
               </dashlet>
-              <dashlet id="AzureAppService" xsi:type="DashletBadge">
+              <dashlet id="14" xsi:type="DashletBadge">
                 <rank>4</rank>
-                <class>AzureAppService</class>
+                <class>AzureCI</class>
               </dashlet>
-              <dashlet id="AzureVNet" xsi:type="DashletBadge">
-                <rank>5</rank>
-                <class>AzureVNet</class>
+            </dashlets>
+          </cell>
+          <cell id="2">
+            <rank>2</rank>
+            <dashlets>
+              <dashlet id="20" xsi:type="DashletHeaderStatic">
+                <rank>0</rank>
+                <title>Menu:Azure:Compute</title>
+                <icon>combodo-azure-datamodel/assets/img/icons8-google-compute-engine-24.png</icon>
               </dashlet>
-              <dashlet id="AzureVNetGateway" xsi:type="DashletBadge">
-                <rank>6</rank>
-                <class>AzureVNetGateway</class>
+              <dashlet id="21" xsi:type="DashletBadge">
+                <rank>1</rank>
+                <class>AzureCompute</class>
               </dashlet>
-              <dashlet id="AzureSubnet" xsi:type="DashletBadge">
-                <rank>6.1</rank>
-                <class>AzureSubnet</class>
-              </dashlet>
-              <dashlet id="AzurePublicIPAddress" xsi:type="DashletBadge">
-                <rank>6.2</rank>
-                <class>AzurePublicIPAddress</class>
-              </dashlet>
-              <dashlet id="AzureLoadBalancer" xsi:type="DashletBadge">
-                <rank>7</rank>
-                <class>AzureLoadBalancer</class>
-              </dashlet>
-              <dashlet id="AzureNetworkInterface" xsi:type="DashletBadge">
-                <rank>8</rank>
-                <class>AzureNetworkInterface</class>
-              </dashlet>
-              <dashlet id="AzureNetworkInterfaceIPConfig" xsi:type="DashletBadge">
-                <rank>8.1</rank>
-                <class>AzureNetworkInterfaceIPConfig</class>
-              </dashlet>
-              <dashlet id="AzureVirtualMachine" xsi:type="DashletBadge">
-                <rank>9</rank>
+              <dashlet id="22" xsi:type="DashletBadge">
+                <rank>2</rank>
                 <class>AzureVirtualMachine</class>
               </dashlet>
-              <dashlet id="AzureDisk" xsi:type="DashletBadge">
-                <rank>10</rank>
+            </dashlets>
+          </cell>
+          <cell id="3">
+            <rank>3</rank>
+            <dashlets>
+              <dashlet id="30" xsi:type="DashletHeaderStatic">
+                <rank>0</rank>
+                <title>Menu:Azure:Storage</title>
+                <icon>combodo-azure-datamodel/assets/img/storage.png</icon>
+              </dashlet>
+              <dashlet id="31" xsi:type="DashletBadge">
+                <rank>1</rank>
+                <class>AzureStorage</class>
+              </dashlet>
+              <dashlet id="32" xsi:type="DashletBadge">
+                <rank>2</rank>
                 <class>AzureDisk</class>
               </dashlet>
-              <dashlet id="AzureStorageAccount" xsi:type="DashletBadge">
-                <rank>11</rank>
+              <dashlet id="33" xsi:type="DashletBadge">
+                <rank>3</rank>
                 <class>AzureStorageAccount</class>
               </dashlet>
-              <dashlet id="AzureKubernetesService" xsi:type="DashletBadge">
-                <rank>12</rank>
-                <class>AzureKubernetesService</class>
+            </dashlets>
+          </cell>
+          <cell id="4">
+            <rank>4</rank>
+            <dashlets>
+              <dashlet id="40" xsi:type="DashletHeaderStatic">
+                <rank>0</rank>
+                <title>Menu:Azure:Database</title>
+                <icon>combodo-azure-datamodel/assets/img/azure-database-generic.svg</icon>
               </dashlet>
-              <dashlet id="AzureDBServer" xsi:type="DashletBadge">
-                <rank>13</rank>
+              <dashlet id="41" xsi:type="DashletBadge">
+                <rank>1</rank>
+                <class>AzureDB</class>
+              </dashlet>
+              <dashlet id="42" xsi:type="DashletBadge">
+                <rank>2</rank>
                 <class>AzureDBServer</class>
               </dashlet>
-              <dashlet id="AzureMariaDB" xsi:type="DashletBadge">
-                <rank>14</rank>
+              <dashlet id="43" xsi:type="DashletBadge">
+                <rank>3</rank>
                 <class>AzureMariaDB</class>
               </dashlet>
-              <dashlet id="AzureMySQL" xsi:type="DashletBadge">
-                <rank>15</rank>
+              <dashlet id="44" xsi:type="DashletBadge">
+                <rank>4</rank>
+                <class>AzureMSSQL</class>
+              </dashlet>
+              <dashlet id="45" xsi:type="DashletBadge">
+                <rank>5</rank>
                 <class>AzureMySQL</class>
               </dashlet>
-              <dashlet id="AzurePostgreSQL" xsi:type="DashletBadge">
-                <rank>16</rank>
+              <dashlet id="46" xsi:type="DashletBadge">
+                <rank>6</rank>
                 <class>AzurePostgreSQL</class>
               </dashlet>
-              <dashlet id="AzureMSSQL" xsi:type="DashletBadge">
-                <rank>17</rank>
-                <class>AzureMSSQL</class>
+            </dashlets>
+          </cell>
+          <cell id="5">
+            <rank>5</rank>
+            <dashlets>
+              <dashlet id="50" xsi:type="DashletHeaderStatic">
+                <rank>0</rank>
+                <title>Menu:Azure:Container</title>
+                <icon>combodo-azure-datamodel/assets/img/icons8-conteneur-50.png</icon>
+              </dashlet>
+              <dashlet id="51" xsi:type="DashletBadge">
+                <rank>1</rank>
+                <class>AzureContainer</class>
+              </dashlet>
+              <dashlet id="52" xsi:type="DashletBadge">
+                <rank>2</rank>
+                <class>AzureKubernetesService</class>
+              </dashlet>
+              <dashlet id="53" xsi:type="DashletBadge">
+                <rank>3</rank>
+                <class>AzureAppService</class>
+              </dashlet>
+            </dashlets>
+          </cell>
+          <cell id="6">
+            <rank>6</rank>
+            <dashlets>
+              <dashlet id="60" xsi:type="DashletHeaderStatic">
+                <rank>0</rank>
+                <title>Menu:Azure:Networking</title>
+                <icon>combodo-azure-datamodel/assets/img/icons8-network.svg</icon>
+              </dashlet>
+              <dashlet id="61" xsi:type="DashletBadge">
+                <rank>1</rank>
+                <class>AzureNetworking</class>
+              </dashlet>
+              <dashlet id="62" xsi:type="DashletBadge">
+                <rank>2</rank>
+                <class>AzureVNet</class>
+              </dashlet>
+              <dashlet id="63" xsi:type="DashletBadge">
+                <rank>3</rank>
+                <class>AzureNetworkInterface</class>
+              </dashlet>
+              <dashlet id="64" xsi:type="DashletBadge">
+                <rank>4</rank>
+                <class>AzureNetworkInterfaceIPConfig</class>
+              </dashlet>
+              <dashlet id="65" xsi:type="DashletBadge">
+                <rank>5</rank>
+                <class>AzureLoadBalancer</class>
+              </dashlet>
+              <dashlet id="66" xsi:type="DashletBadge">
+                <rank>6</rank>
+                <class>AzureLoadBalancerFrontendIPConfig</class>
+              </dashlet>
+              <dashlet id="67" xsi:type="DashletBadge">
+                <rank>7</rank>
+                <class>AzureVNetGateway</class>
+              </dashlet>
+              <dashlet id="68" xsi:type="DashletBadge">
+                <rank>8</rank>
+                <class>AzurePublicIPAddress</class>
+              </dashlet>
+              <dashlet id="69" xsi:type="DashletBadge">
+                <rank>9</rank>
+                <class>AzureSubnet</class>
               </dashlet>
             </dashlets>
           </cell>
