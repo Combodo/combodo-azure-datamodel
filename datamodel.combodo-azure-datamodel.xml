@@ -5315,14 +5315,14 @@
           <validation_pattern/>
           <tracking_level>all</tracking_level>
         </field>
-        <field id="nicipconfig_id" xsi:type="AttributeExternalKey">
-          <sql>nicipconfig_id</sql>
-          <filter></filter>
+        <field id="azureipconfig_id" xsi:type="AttributeExternalKey">
+          <sql>azureipconfig_id</sql>
+          <filter>SELECT AzureNetworking WHERE finalclass IN ('AzureNetworkInterfaceIPConfig', 'AzureLoadBalancerFrontendIPConfig')</filter>
           <dependencies>
             <attribute id="org_id"/>
           </dependencies>
           <is_null_allowed>true</is_null_allowed>
-          <target_class>AzureNetworkInterfaceIPConfig</target_class>
+          <target_class>AzureNetworking</target_class>
           <on_target_delete>DEL_MANUAL</on_target_delete>
           <tracking_level>all</tracking_level>
         </field>
@@ -5432,7 +5432,7 @@
                     <item id="fqdn">
                       <rank>50</rank>
                     </item>
-                    <item id="nicipconfig_id">
+                    <item id="azureipconfig_id">
                       <rank>60</rank>
                     </item>
                   </items>
@@ -5523,7 +5523,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon></icon>
+        <icon>assets/img/icon-service-Network-Interfaces-ipconfig.png</icon>
       </properties>
       <fields>
         <field id="azurenetworkinterface_id" xsi:type="AttributeExternalKey">
@@ -5781,7 +5781,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon></icon>
+        <icon>assets/img/icon-service-Load-Balancers-ipconfig.png</icon>
       </properties>
       <fields>
         <field id="azureloadbalancer_id" xsi:type="AttributeExternalKey">
@@ -5833,6 +5833,15 @@
           <on_target_delete>DEL_AUTO</on_target_delete>
           <tracking_level>all</tracking_level>
         </field>
+        <field id="public_ip_id" xsi:type="AttributeExternalKey">
+          <sql>public_ip_id</sql>
+          <filter/>
+          <dependencies/>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>AzurePublicIPAddress</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
       </fields>
       <methods/>
       <presentation>
@@ -5864,6 +5873,9 @@
             </item>
             <item id="private_ip">
               <rank>90</rank>
+            </item>
+            <item id="public_ip_id">
+              <rank>100</rank>
             </item>
           </items>
         </list>
@@ -5918,14 +5930,17 @@
                     <item id="azuresubnet_id">
                       <rank>20</rank>
                     </item>
-                    <item id="private_ip">
+                    <item id="public_ip_id">
                       <rank>30</rank>
                     </item>
-                    <item id="private_ip_version">
+                    <item id="private_ip">
                       <rank>40</rank>
                     </item>
-                    <item id="private_ip_allocation_method">
+                    <item id="private_ip_version">
                       <rank>50</rank>
+                    </item>
+                    <item id="private_ip_allocation_method">
+                      <rank>60</rank>
                     </item>
                   </items>
                   <rank>20</rank>

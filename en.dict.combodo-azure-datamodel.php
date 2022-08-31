@@ -268,6 +268,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip+' => '',
 	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id' => 'Subnet',
 	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id+' => '',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id' => 'Public IP',
+	'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
@@ -456,8 +458,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzurePublicIPAddress/Attribute:short_name+' => '',
 	'Class:AzurePublicIPAddress/Attribute:fqdn' => 'FQDN',
 	'Class:AzurePublicIPAddress/Attribute:fqdn+' => '',
-	'Class:AzurePublicIPAddress/Attribute:nicipconfig_id' => 'NIC IP Config',
-	'Class:AzurePublicIPAddress/Attribute:nicipconfig_id+' => 'NIC IP Config that host the IP address',
+	'Class:AzurePublicIPAddress/Attribute:azureipconfig_id' => 'IP Config',
+	'Class:AzurePublicIPAddress/Attribute:azureipconfig_id+' => 'Azure IP Config that host the IP address',
 ));
 
 //
