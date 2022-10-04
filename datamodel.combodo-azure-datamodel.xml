@@ -2574,7 +2574,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon>assets/img/icons8-google-compute-engine-24.png</icon>
+        <icon>assets/img/icons8-processor.png</icon>
       </properties>
       <fields/>
       <methods/>
@@ -4163,7 +4163,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon>assets/img/icons8-conteneur-50.png</icon>
+        <icon>assets/img/icons8-shipping-container.png</icon>
       </properties>
       <fields/>
       <methods/>
@@ -4459,7 +4459,7 @@
         <category>bizmodel,searchable</category>
         <abstract>true</abstract>
         <db_table>azurestorage</db_table>
-        <icon>assets/img/storage.png</icon>
+        <icon>assets/img/icons8-storage.png</icon>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -5035,7 +5035,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon>assets/img/10372-icon-service-Public-IP-Prefixes.svg</icon>
+        <icon>assets/img/10372-icon-service-Public-IP-Prefixes.png</icon>
       </properties>
       <fields>
         <field id="ip" xsi:type="AttributeString">
@@ -5267,7 +5267,7 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
-        <icon>assets/img/10069-icon-service-Public-IP-Addresses.svg</icon>
+        <icon>assets/img/10069-icon-service-Public-IP-Addresses.png</icon>
       </properties>
       <fields>
         <field id="version" xsi:type="AttributeEnum">
@@ -6048,7 +6048,7 @@
               <dashlet id="20" xsi:type="DashletHeaderStatic">
                 <rank>0</rank>
                 <title>Menu:Azure:Compute</title>
-                <icon>combodo-azure-datamodel/assets/img/icons8-google-compute-engine-24.png</icon>
+                <icon>combodo-azure-datamodel/assets/img/icons8-processor.png</icon>
               </dashlet>
               <dashlet id="21" xsi:type="DashletBadge">
                 <rank>1</rank>
@@ -6066,7 +6066,7 @@
               <dashlet id="30" xsi:type="DashletHeaderStatic">
                 <rank>0</rank>
                 <title>Menu:Azure:Storage</title>
-                <icon>combodo-azure-datamodel/assets/img/storage.png</icon>
+                <icon>combodo-azure-datamodel/assets/img/icons8-storage.png</icon>
               </dashlet>
               <dashlet id="31" xsi:type="DashletBadge">
                 <rank>1</rank>
@@ -6122,7 +6122,7 @@
               <dashlet id="50" xsi:type="DashletHeaderStatic">
                 <rank>0</rank>
                 <title>Menu:Azure:Container</title>
-                <icon>combodo-azure-datamodel/assets/img/icons8-conteneur-50.png</icon>
+                <icon>combodo-azure-datamodel/assets/img/icons8-shipping-container.png</icon>
               </dashlet>
               <dashlet id="51" xsi:type="DashletBadge">
                 <rank>1</rank>
