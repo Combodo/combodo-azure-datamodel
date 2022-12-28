@@ -139,8 +139,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureDisk
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureDisk' => 'Disk',
-	'Class:AzureDisk+' => 'Azure Disk',
+	'Class:AzureDisk' => 'Azure Disk',
+	'Class:AzureDisk+' => '',
 	'Class:AzureDisk/Name' => '%1$s',
 	'Class:AzureDisk/Attribute:azuredisktype_id' => 'Size type',
 	'Class:AzureDisk/Attribute:azurestatus' => 'State',
@@ -209,8 +209,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureKubernetesService
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureKubernetesService' => 'Kubernetes Service (AKS)',
-	'Class:AzureKubernetesService+' => 'Azure Kubernetes Service - AKS',
+	'Class:AzureKubernetesService' => 'Azure Kubernetes Service (AKS)',
+	'Class:AzureKubernetesService+' => '',
 	'Class:AzureKubernetesService/Name' => '%1$s',
 	'Class:AzureKubernetesService/Attribute:fqdn' => 'FQDN',
 	'Class:AzureKubernetesService/Attribute:fqdn+' => '',
@@ -232,8 +232,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureLoadBalancer
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureLoadBalancer' => 'Load Balancer',
-	'Class:AzureLoadBalancer+' => 'Azure Load Balancer',
+	'Class:AzureLoadBalancer' => 'Azure Load Balancer',
+	'Class:AzureLoadBalancer+' => '',
 	'Class:AzureLoadBalancer/Name' => '%1$s',
 	'Class:AzureLoadBalancer/Attribute:ipaddress' => 'Front IP address',
 	'Class:AzureLoadBalancer/Attribute:sku' => 'SKU',
@@ -244,13 +244,39 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Class:AzureLoadBalancer/Attribute:type/Value:public' => 'public',
 	'Class:AzureLoadBalancer/Attribute:zone_id' => 'Zone',
 	'Class:AzureLoadBalancer/Attribute:zone_id+' => 'Azure availability Zone',
+    'Class:AzureLoadBalancer/Attribute:azureloadbalancerfrontendipconfigs_list' => 'Frontend IP Configs',
+));
+
+//
+// AzureLoadBalancerFrontendIPConfig
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:AzureLoadBalancerFrontendIPConfig' => 'Azure LB Frontend IP Config',
+    'Class:AzureLoadBalancerFrontendIPConfig+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Name' => '%1$s',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id' => 'Load Balancer',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version' => 'Private IP version',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip' => 'Private IP',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id' => 'Public IP',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
 // AzureMariaDB
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureMariaDB' => 'MariaDB Database',
+	'Class:AzureMariaDB' => 'Azure MariaDB Database',
 	'Class:AzureMariaDB+' => 'Azure Database for MariaDB',
 	'Class:AzureMariaDB/Name' => '%1$s',
 	'Class:AzureMariaDB/Attribute:azure_status' => 'Azure status',
@@ -273,7 +299,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureMSSQL
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureMSSQL' => 'MS SQL Database',
+	'Class:AzureMSSQL' => 'Azure MS SQL Database',
 	'Class:AzureMSSQL+' => 'Azure Database for Microsoft SQL',
 	'Class:AzureMSSQL/Name' => '%1$s',
 	'Class:AzureMSSQL/Attribute:azure_status' => 'Azure status',
@@ -296,7 +322,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureMySQL
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureMySQL' => 'MySQL Database',
+	'Class:AzureMySQL' => 'Azure MySQL Database',
 	'Class:AzureMySQL+' => 'Azure Database for MySQL',
 	'Class:AzureMySQL/Name' => '%1$s',
 	'Class:AzureMySQL/Attribute:azure_status' => 'Azure status',
@@ -328,14 +354,14 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureNetworkInterface
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureNetworkInterface' => 'Network Interface',
-	'Class:AzureNetworkInterface+' => 'Azure network interface',
+	'Class:AzureNetworkInterface' => 'Azure Network Interface',
+	'Class:AzureNetworkInterface+' => '',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Azure VM',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
 	'Class:AzureNetworkInterface/Attribute:azurevnet_id' => 'VNet',
 	'Class:AzureNetworkInterface/Attribute:azurevnets_list' => 'VNets',
-	'Class:AzureNetworkInterface/Attribute:azurevnets_list+' => '',
+	'Class:AzureNetworkInterface/Attribute:azurevnets_list+' => 'List of Network Interfaces in the VNet',
 	'Class:AzureNetworkInterface/Attribute:contract_id' => 'Subscription',
 	'Class:AzureNetworkInterface/Attribute:move2production' => 'Move to production date',
 	'Class:AzureNetworkInterface/Attribute:primaryprivateip' => 'Primary private IP',
@@ -344,6 +370,39 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Class:AzureNetworkInterface/Attribute:secondaryprivateip2' => 'Secondary private IP #2',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip1' => 'Secondary public IP #1',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip2' => 'Secondary public IP #2',
+	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+	'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+	'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list+' => '',
+));
+
+//
+// AzureNetworkInterfaceIPConfig
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:AzureNetworkInterfaceIPConfig' => 'Azure NIC IP Config',
+    'Class:AzureNetworkInterfaceIPConfig+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Name' => '%1$s',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id' => 'Network card',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version' => 'Private IP version',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip' => 'Private IP',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary' => 'Primary',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:true' => 'True',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:false' => 'False',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id' => 'Public IP',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
@@ -380,10 +439,59 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 ));
 
 //
+// AzurePrivateEndpoint
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+        'Class:AzurePrivateEndpoint' => 'Azure Private Endpoint',
+        'Class:AzurePrivateEndpoint+' => '',
+        'Class:AzurePrivateEndpoint/Name' => '%1$s',
+        'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id' => 'Azure Subnet',
+        'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id+' => '',
+        'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
+        'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list+' => '',
+));
+
+//
+// lnkAzureNetworkInterfaceToAzurePrivateEndpoint
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint' => 'Link Azure network interface / Azure Private Endpoint',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Name' => '%1$s - %2$s',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azurenetworkinterface_id' => 'Azure Network interface',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azureprivateendpoint_id' => 'Azure Private Endpoint',
+));
+
+//
+// AzurePublicIPAddress
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+	'Class:AzurePublicIPAddress' => 'Azure Public IP Address',
+	'Class:AzurePublicIPAddress+' => '',
+	'Class:AzurePublicIPAddress/Name' => '%1$s',
+	'Class:AzurePublicIPAddress/Name+' => '',
+	'Class:AzurePublicIPAddress/Attribute:version' => 'Version',
+	'Class:AzurePublicIPAddress/Attribute:version+' => '',
+	'Class:AzurePublicIPAddress/Attribute:version/Value:ipv4' => 'IPv4',
+	'Class:AzurePublicIPAddress/Attribute:version/Value:ipv6' => 'IPv6',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method' => 'Allocation method',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method+' => '',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:static' => 'Static',
+	'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:dynamic' => 'Dynamic',
+	'Class:AzurePublicIPAddress/Attribute:ip' => 'Address',
+	'Class:AzurePublicIPAddress/Attribute:ip+' => '',
+	'Class:AzurePublicIPAddress/Attribute:short_name' => 'Short Name',
+	'Class:AzurePublicIPAddress/Attribute:short_name+' => '',
+	'Class:AzurePublicIPAddress/Attribute:fqdn' => 'FQDN',
+	'Class:AzurePublicIPAddress/Attribute:fqdn+' => '',
+	'Class:AzurePublicIPAddress/Attribute:azureipconfig_id' => 'IP Config',
+	'Class:AzurePublicIPAddress/Attribute:azureipconfig_id+' => 'Azure IP Config that host the IP address',
+));
+
+//
 // AzureResourceGroup
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureResourceGroup' => 'Resource Group',
+	'Class:AzureResourceGroup' => 'Azure Resource Group',
 	'Class:AzureResourceGroup+' => '',
 	'Class:AzureResource/Name' => '%1$s',
 	'Class:AzureResource/Name+' => '',
@@ -400,7 +508,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list' => 'Identities',
 	'Class:AzureResourceGroup/Attribute:azureidentitys_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azureinterfaces_list' => 'NICs',
-	'Class:AzureResourceGroup/Attribute:azureinterfaces_list+' => 'Network interfaces',
+	'Class:AzureResourceGroup/Attribute:azureinterfaces_list+' => 'Network cards',
 	'Class:AzureResourceGroup/Attribute:azureiots_list' => 'IoTs',
 	'Class:AzureResourceGroup/Attribute:azureiots_list+' => '',
 	'Class:AzureResourceGroup/Attribute:azureloadbalancers_list' => 'Load balancers',
@@ -484,8 +592,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureStorageAccount
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureStorageAccount' => 'Storage Account',
-	'Class:AzureStorageAccount+' => 'Azure Storage Account',
+	'Class:AzureStorageAccount' => 'Azure Storage Account',
+	'Class:AzureStorageAccount+' => '',
 	'Class:AzureStorageAccount/Name' => '%1$s',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id' => 'App service',
 	'Class:AzureStorageAccount/Attribute:azureappservice_id+' => '',
@@ -500,11 +608,32 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 ));
 
 //
+// AzureSubnet
+//
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+	'Class:AzureSubnet' => 'Azure Subnet',
+	'Class:AzureSubnet+' => '',
+	'Class:AzureSubnet/Name' => '%1$s',
+	'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
+	'Class:AzureSubnet/Attribute:ip+' => '',
+	'Class:AzureSubnet/Attribute:mask' => 'Mask',
+	'Class:AzureSubnet/Attribute:mask+' => '',
+	'Class:AzureSubnet/Attribute:azurevnet_id' => 'VNet',
+	'Class:AzureSubnet/Attribute:azurevnet_id+' => 'Azure Virtual Network that the subnet belongs to',
+	'Class:AzureSubnet/Attribute:azureci_id' => 'Delegated to',
+	'Class:AzureSubnet/Attribute:azureci_id+' => 'Azure service to which the subnet is delegated to',
+	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+	'Class:AzureSubnet/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+	'Class:AzureSubnet/Attribute:azureprivateendpoints_list+' => '',
+));
+
+//
 // AzureSubscription
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureSubscription' => 'Subscription',
-	'Class:AzureSubscription+' => 'Azure Subscription',
+	'Class:AzureSubscription' => 'Azure Subscription',
+	'Class:AzureSubscription+' => '',
 	'Class:AzureSubscription/Name' => '%1$s',
 	'Class:AzureSubscription/Name+' => '',
 	'AzureSubscription:baseinfo' => 'General information',
@@ -540,7 +669,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureTenant
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureTenant' => 'Tenant',
+	'Class:AzureTenant' => 'Azure Tenant',
 	'Class:AzureTenant+' => '',
 	'Class:AzureTenant/Name' => '%1$s',
 	'Class:AzureTenant/Name+' => '',
@@ -552,7 +681,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Class:AzureTenant/Attribute:azureusers_list' => 'Users',
 	'Class:AzureTenant/Attribute:azureusers_list+' => '',
 	'Class:AzureTenant/Attribute:country' => 'Country',
-	'Class:AzureTenant/Attribute:country+' => 'Country/Region',
+	'Class:AzureTenant/Attribute:country+' => 'Country / Region',
 	'Class:AzureTenant/Attribute:description' => 'Description',
 	'Class:AzureTenant/Attribute:description+' => '',
 	'Class:AzureTenant/Attribute:domain' => 'Domain name',
@@ -623,13 +752,15 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 // AzureVNet
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-	'Class:AzureVNet' => 'VNet',
+	'Class:AzureVNet' => 'Azure VNet',
 	'Class:AzureVNet+' => 'Azure Virtual network',
 	'Class:AzureVNet/Name' => '%1$s',
 	'Class:AzureVNet/Attribute:address_space' => 'Address space',
 	'Class:AzureVNet/Attribute:address_space+' => '',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list+' => '',
+	'Class:AzureVNet/Attribute:azuresubnets_list' => 'Subnets',
+	'Class:AzureVNet/Attribute:azuresubnets_list+' => '',
 ));
 
 //
@@ -665,4 +796,10 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 Dict::Add('DE DE', 'German', 'Deutsch', array(
 	'Menu:ConfigManagement:Azure' => 'Azure Cloud',
+    'Menu:Azure:General' => 'General',
+    'Menu:Azure:Compute' => 'Compute',
+    'Menu:Azure:Storage' => 'Storage',
+    'Menu:Azure:Database' => 'Database',
+    'Menu:Azure:Container' => 'Container',
+    'Menu:Azure:Networking' => 'Networking',
 ));

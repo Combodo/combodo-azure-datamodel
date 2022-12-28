@@ -244,6 +244,32 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureLoadBalancer/Attribute:type/Value:public' => 'public',
 	'Class:AzureLoadBalancer/Attribute:zone_id' => 'Zone',
 	'Class:AzureLoadBalancer/Attribute:zone_id+' => 'Zone de disponibilité Azure',
+    'Class:AzureLoadBalancer/Attribute:azureloadbalancerfrontendipconfigs_list' => 'Frontend IP Configs',
+));
+
+//
+// AzureLoadBalancerFrontendIPConfig
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzureLoadBalancerFrontendIPConfig' => 'Azure LB Frontend IP Config',
+    'Class:AzureLoadBalancerFrontendIPConfig+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Name' => '%1$s',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id' => 'Load Balancer',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azureloadbalancer_id+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version' => 'Private IP version',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip' => 'Private IP',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:private_ip+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:azuresubnet_id+' => '',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id' => 'Public IP',
+    'Class:AzureLoadBalancerFrontendIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
@@ -344,6 +370,39 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureNetworkInterface/Attribute:secondaryprivateip2' => 'Adresse IP privée secondaire #2',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip1' => 'Adresse IP publique secondaire #1',
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip2' => 'Adresse IP publique secondaire #2',
+    'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+    'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+    'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+    'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list+' => '',
+));
+
+//
+// AzureNetworkInterfaceIPConfig
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzureNetworkInterfaceIPConfig' => 'Azure NIC IP Config',
+    'Class:AzureNetworkInterfaceIPConfig+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Name' => '%1$s',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id' => 'Network card',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azurenetworkinterface_id+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version' => 'Private IP version',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv4' => 'IPv4',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_version/Value:ipv6' => 'IPv6',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method' => 'Private IP allocation method',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:static' => 'Static',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip_allocation_method/Value:dynamic' => 'Dynamic',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip' => 'Private IP',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:private_ip+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary' => 'Primary',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:true' => 'True',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:primary/Value:false' => 'False',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id' => 'Subnet',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:azuresubnet_id+' => '',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id' => 'Public IP',
+    'Class:AzureNetworkInterfaceIPConfig/Attribute:public_ip_id+' => '',
 ));
 
 //
@@ -377,6 +436,55 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_tier+' => 'Niveau de calcul',
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_version' => 'Version',
 	'Class:AzurePostgreSQL/Attribute:azuredbserver_version+' => '',
+));
+
+//
+// AzurePrivateEndpoint
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzurePrivateEndpoint' => 'Azure Private Endpoint',
+    'Class:AzurePrivateEndpoint+' => '',
+    'Class:AzurePrivateEndpoint/Name' => '%1$s',
+    'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id' => 'Azure Subnet',
+    'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id+' => '',
+    'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
+    'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list+' => '',
+));
+
+//
+// lnkAzureNetworkInterfaceToAzurePrivateEndpoint
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint' => 'Link Azure network interface / Azure Private Endpoint',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Name' => '%1$s - %2$s',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azurenetworkinterface_id' => 'Azure Network interface',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azureprivateendpoint_id' => 'Azure Private Endpoint',
+));
+
+//
+// AzurePublicIPAddress
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzurePublicIPAddress' => 'Azure Public IP Address',
+    'Class:AzurePublicIPAddress+' => '',
+    'Class:AzurePublicIPAddress/Name' => '%1$s',
+    'Class:AzurePublicIPAddress/Name+' => '',
+    'Class:AzurePublicIPAddress/Attribute:version' => 'Version',
+    'Class:AzurePublicIPAddress/Attribute:version+' => '',
+    'Class:AzurePublicIPAddress/Attribute:version/Value:ipv4' => 'IPv4',
+    'Class:AzurePublicIPAddress/Attribute:version/Value:ipv6' => 'IPv6',
+    'Class:AzurePublicIPAddress/Attribute:allocation_method' => 'Allocation method',
+    'Class:AzurePublicIPAddress/Attribute:allocation_method+' => '',
+    'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:static' => 'Static',
+    'Class:AzurePublicIPAddress/Attribute:allocation_method/Value:dynamic' => 'Dynamic',
+    'Class:AzurePublicIPAddress/Attribute:ip' => 'Address',
+    'Class:AzurePublicIPAddress/Attribute:ip+' => '',
+    'Class:AzurePublicIPAddress/Attribute:short_name' => 'Short Name',
+    'Class:AzurePublicIPAddress/Attribute:short_name+' => '',
+    'Class:AzurePublicIPAddress/Attribute:fqdn' => 'FQDN',
+    'Class:AzurePublicIPAddress/Attribute:fqdn+' => '',
+    'Class:AzurePublicIPAddress/Attribute:azureipconfig_id' => 'IP Config',
+    'Class:AzurePublicIPAddress/Attribute:azureipconfig_id+' => 'Azure IP Config that host the IP address',
 ));
 
 //
@@ -500,6 +608,27 @@ Dict::Add('FR FR', 'French', 'Français', array(
 ));
 
 //
+// AzureSubnet
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzureSubnet' => 'Azure Subnet',
+    'Class:AzureSubnet+' => '',
+    'Class:AzureSubnet/Name' => '%1$s',
+    'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
+    'Class:AzureSubnet/Attribute:ip+' => '',
+    'Class:AzureSubnet/Attribute:mask' => 'Mask',
+    'Class:AzureSubnet/Attribute:mask+' => '',
+    'Class:AzureSubnet/Attribute:azurevnet_id' => 'VNet',
+    'Class:AzureSubnet/Attribute:azurevnet_id+' => 'Azure Virtual Network that the subnet belongs to',
+    'Class:AzureSubnet/Attribute:azureci_id' => 'Delegated to',
+    'Class:AzureSubnet/Attribute:azureci_id+' => 'Azure service to which the subnet is delegated to',
+    'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
+    'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+    'Class:AzureSubnet/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+    'Class:AzureSubnet/Attribute:azureprivateendpoints_list+' => '',
+));
+
+//
 // AzureSubscription
 //
 Dict::Add('FR FR', 'French', 'Français', array(
@@ -587,8 +716,6 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVirtualMachine/Attribute:azurevmsize+' => '',
 	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number' => 'vCPU',
 	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number+' => 'Processeurs virtuels',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize_memory' => 'Mémoire',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize_memory+' => 'RAM',
 	'Class:AzureVirtualMachine/Attribute:managementip' => 'IP de gestion',
 	'Class:AzureVirtualMachine/Attribute:managementip+' => 'Adresse IP de gestion',
 	'Class:AzureVirtualMachine/Attribute:osfamily_id' => 'Famille OS',
@@ -632,6 +759,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVNet/Attribute:address_space+' => '',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list+' => '',
+    'Class:AzureVNet/Attribute:azuresubnets_list' => 'Sous-réseaux',
+    'Class:AzureVNet/Attribute:azuresubnets_list+' => '',
 ));
 
 //
@@ -667,4 +796,10 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Menu:ConfigManagement:Azure' => 'Cloud Azure',
+    'Menu:Azure:General' => 'Général',
+    'Menu:Azure:Compute' => 'Calcul',
+    'Menu:Azure:Storage' => 'Stockage',
+    'Menu:Azure:Database' => 'Base de données',
+    'Menu:Azure:Container' => 'Conteneurs',
+    'Menu:Azure:Networking' => 'Réseau',
 ));
