@@ -372,6 +372,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureNetworkInterface/Attribute:secondarypublicip2' => 'Secondary public IP #2',
 	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
 	'Class:AzureNetworkInterface/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+	'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+	'Class:AzureNetworkInterface/Attribute:azureprivateendpoints_list+' => '',
 ));
 
 //
@@ -417,23 +419,46 @@ Dict::Add('EN US', 'English', 'English', array(
 // AzurePostgreSQL
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:AzurePostgreSQL' => 'Azure PostgreSQL',
-	'Class:AzurePostgreSQL+' => '',
-	'Class:AzurePostgreSQL/Name' => '%1$s',
-	'Class:AzurePostgreSQL/Attribute:azure_status' => 'Azure status',
-	'Class:AzurePostgreSQL/Attribute:azure_status+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_capacity' => 'Capacity (vCPUs)',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_capacity+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_fqdn' => 'DB Server name',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_fqdn+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_id' => 'DB Server',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_id+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_storage' => 'Storage (GB)',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_storage+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_tier' => 'Tier',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_tier+' => '',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_version' => 'Version',
-	'Class:AzurePostgreSQL/Attribute:azuredbserver_version+' => '',
+    'Class:AzurePostgreSQL' => 'Azure PostgreSQL',
+    'Class:AzurePostgreSQL+' => '',
+    'Class:AzurePostgreSQL/Name' => '%1$s',
+    'Class:AzurePostgreSQL/Attribute:azure_status' => 'Azure status',
+    'Class:AzurePostgreSQL/Attribute:azure_status+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_capacity' => 'Capacity (vCPUs)',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_capacity+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_fqdn' => 'DB Server name',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_fqdn+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_id' => 'DB Server',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_id+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_storage' => 'Storage (GB)',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_storage+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_tier' => 'Tier',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_tier+' => '',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_version' => 'Version',
+    'Class:AzurePostgreSQL/Attribute:azuredbserver_version+' => '',
+));
+
+//
+// AzurePrivateEndpoint
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:AzurePrivateEndpoint' => 'Azure Private Endpoint',
+    'Class:AzurePrivateEndpoint+' => '',
+    'Class:AzurePrivateEndpoint/Name' => '%1$s',
+    'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id' => 'Azure Subnet',
+    'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id+' => '',
+    'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
+    'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list+' => '',
+));
+
+//
+// lnkAzureNetworkInterfaceToAzurePrivateEndpoint
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint' => 'Link Azure network interface / Azure Private Endpoint',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Name' => '%1$s - %2$s',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azurenetworkinterface_id' => 'Azure Network interface',
+    'Class:lnkAzureNetworkInterfaceToAzurePrivateEndpoint/Attribute:azureprivateendpoint_id' => 'Azure Private Endpoint',
 ));
 
 //
@@ -503,9 +528,9 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureResourceGroup/Attribute:azurewebs_list+' => '',
 	'Class:AzureResourceGroup/Attribute:business_criticity' => 'Business criticality',
 	'Class:AzureResourceGroup/Attribute:business_criticity+' => '',
-	'Class:AzureResourceGroup/Attribute:business_criticity / Value:high' => 'High',
-	'Class:AzureResourceGroup/Attribute:business_criticity / Value:low' => 'Low',
-	'Class:AzureResourceGroup/Attribute:business_criticity / Value:medium' => 'Medium',
+	'Class:AzureResourceGroup/Attribute:business_criticity/Value:high' => 'High',
+	'Class:AzureResourceGroup/Attribute:business_criticity/Value:low' => 'Low',
+	'Class:AzureResourceGroup/Attribute:business_criticity/Value:medium' => 'Medium',
 	'Class:AzureResourceGroup/Attribute:contacts_list' => 'Contacts',
 	'Class:AzureResourceGroup/Attribute:contacts_list+' => '',
 	'Class:AzureResourceGroup/Attribute:description' => 'Description',
@@ -523,11 +548,11 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureResourceGroup/Attribute:organization_name' => 'Organization name',
 	'Class:AzureResourceGroup/Attribute:organization_name+' => '',
 	'Class:AzureResourceGroup/Attribute:provisioning_status' => 'Provisioning status',
-	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:canceled' => 'Canceled',
-	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:deleting' => 'Deleting',
-	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:failed' => 'Failed',
-	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:inprogress' => 'In progress',
-	'Class:AzureResourceGroup/Attribute:provisioning_status / Value:succeeded' => 'Succeeded',
+	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:canceled' => 'Canceled',
+	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:deleting' => 'Deleting',
+	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:failed' => 'Failed',
+	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:inprogress' => 'In progress',
+	'Class:AzureResourceGroup/Attribute:provisioning_status/Value:succeeded' => 'Succeeded',
 ));
 
 //
@@ -576,10 +601,10 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureStorageAccount/Attribute:tier+' => '',
 	'Class:AzureStorageAccount/Attribute:type' => 'Type',
 	'Class:AzureStorageAccount/Attribute:type+' => '',
-	'Class:AzureStorageAccount/Attribute:type / Value:blob' => 'Blob',
-	'Class:AzureStorageAccount/Attribute:type / Value:queue' => 'Queue',
-	'Class:AzureStorageAccount/Attribute:type / Value:table' => 'Table',
-	'Class:AzureStorageAccount/Attribute:type / Value:file' => 'File',
+	'Class:AzureStorageAccount/Attribute:type/Value:blob' => 'Blob',
+	'Class:AzureStorageAccount/Attribute:type/Value:queue' => 'Queue',
+	'Class:AzureStorageAccount/Attribute:type/Value:table' => 'Table',
+	'Class:AzureStorageAccount/Attribute:type/Value:file' => 'File',
 ));
 
 //
@@ -599,6 +624,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureSubnet/Attribute:azureci_id+' => 'Azure service to which the subnet is delegated to',
 	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list' => 'IP configs',
 	'Class:AzureSubnet/Attribute:azurenetworkinterfaceipconfigs_list+' => '',
+	'Class:AzureSubnet/Attribute:azureprivateendpoints_list' => 'Private Endpoints',
+	'Class:AzureSubnet/Attribute:azureprivateendpoints_list+' => '',
 ));
 
 //
@@ -632,8 +659,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureSubscription/Attribute:azureusers_list+' => '',
 	'Class:AzureSubscription/Attribute:discover_objects' => 'Discover objects',
 	'Class:AzureSubscription/Attribute:discover_objects+' => 'Discover objects link to this subscription',
-	'Class:AzureSubscription/Attribute:discover_objects / Value:no' => 'No',
-	'Class:AzureSubscription/Attribute:discover_objects / Value:yes' => 'Yes',
+	'Class:AzureSubscription/Attribute:discover_objects/Value:no' => 'No',
+	'Class:AzureSubscription/Attribute:discover_objects/Value:yes' => 'Yes',
 	'Class:AzureSubscription/Attribute:subscriptionid' => 'ID',
 	'Class:AzureSubscription/Attribute:subscriptionid+' => '',
 ));
@@ -663,8 +690,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureTenant/Attribute:tenantid+' => '',
 	'Class:AzureTenant/Attribute:type' => 'Type',
 	'Class:AzureTenant/Attribute:type+' => '',
-	'Class:AzureTenant/Attribute:type / Value:AAD - B2C' => 'Azure Active Directory(B2C)',
-	'Class:AzureTenant/Attribute:type / Value:AAD' => 'Azure Active Directory',
+	'Class:AzureTenant/Attribute:type/Value:AAD-B2C' => 'Azure Active Directory (B2C)',
+	'Class:AzureTenant/Attribute:type/Value:AAD' => 'Azure Active Directory',
 	'Class:AzureTenant/Attribute:azuresubscriptions_list' => 'Subscriptions',
 ));
 
@@ -699,11 +726,11 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVirtualMachine/Attribute:osversion_id' => 'OS version',
 	'Class:AzureVirtualMachine/Attribute:provisioning_status' => 'Provisioning status',
 	'Class:AzureVirtualMachine/Attribute:provisioning_status+' => '',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:canceled' => 'Canceled',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:deleting' => 'Deleting',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:failed' => 'Failed',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:inprogress' => 'In progress',
-	'Class:AzureVirtualMachine/Attribute:provisioning_status / Value:succeeded' => 'Succeeded',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:canceled' => 'Canceled',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:deleting' => 'Deleting',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:failed' => 'Failed',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:inprogress' => 'In progress',
+	'Class:AzureVirtualMachine/Attribute:provisioning_status/Value:succeeded' => 'Succeeded',
 	'Class:AzureVirtualMachine/Attribute:softwareinstances_list' => 'Software instances',
 	'Class:AzureVirtualMachine/Attribute:zone_id' => 'Zone',
 	'Class:AzureVirtualMachine/Attribute:zone_id+' => 'Availability zone',
