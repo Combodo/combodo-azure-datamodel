@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
+  <classes>
+    <class id="AzureSubnet" _delta="must_exist">
+      <fields>
+        <field id="ip" xsi:type="AttributeString" _delta="delete"/>
+        <field id="ipsubnet_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>ipsubnet_id</sql>
+          <filter>SELECT IPSubnet AS s WHERE s.org_id = :this->org_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>false</is_null_allowed>
+          <target_class>IPSubnet</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="ipsubnet_fname" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>ipsubnet_id</extkey_attcode>
+          <target_attcode>friendlyname</target_attcode>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list _delta="must_exist">
+          <items>
+            <item id="ip" _delta="delete"/>
+            <item id="ipsubnet_id" _delta="define">
+              <rank>90</rank>
+            </item>
+            <item id="mask" _delta="delete"/>
+          </items>
+        </list>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col0" _delta="must_exist">
+              <items>
+                <item id="fieldset:AzureCI:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ip" _delta="delete"/>
+                    <item id="ipsubnet_id" _delta="define">
+                      <rank>20</rank>
+                    </item>
+                    <item id="mask" _delta="delete"/>
+                  </items>
+                  <rank>20</rank>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+        <default_search>
+          <items>
+            <item id="ip" _delta="delete"/>
+            <item id="ipsubnet_id" _delta="define">
+              <rank>80</rank>
+            </item>
+            <item id="mask" _delta="delete"/>
+          </items>
+        </default_search>
+      </presentation>
+    </class>
+    <class id="IPSubnet" _delta="must_exist">
+      <fields>
+        <field id="azuresubnet_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>azuresubnet_id</sql>
+          <filter>SELECT AzureSubnet AS s WHERE s.ipsubnet_id = :this->id</filter>
+          <dependencies/>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>AzureSubnet</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+      </fields>
+    </class>
+    <class id="IPv4Subnet" _delta="must_exist">
+      <presentation>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col2" _delta="must_exist">
+              <items>
+                <item id="fieldset:Class:IPSubnet:azureinfo" _delta="define">
+                  <rank>25</rank>
+                  <items>
+                    <item id="azuresubnet_id">
+                      <rank>10</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="IPv6Subnet" _delta="must_exist">
+      <presentation>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col2" _delta="must_exist">
+              <items>
+                <item id="fieldset:Class:IPSubnet:azureinfo" _delta="define">
+                  <rank>25</rank>
+                  <items>
+                    <item id="azuresubnet_id">
+                      <rank>10</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+  </classes>
+  <dictionaries/>
+  <menus/>
+  <snippets/>
+</itop_design>
