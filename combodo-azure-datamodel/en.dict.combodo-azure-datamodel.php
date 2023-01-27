@@ -75,6 +75,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureCI/Attribute:status/Value:production' => 'production',
 	'Class:AzureCI/Attribute:status/Value:stock' => 'stock',
 	'Class:AzureCI/Attribute:status/Value:stopped' => 'stopped',
+	'Class:AzureCI/Attribute:azuretags' => 'Tags',
+	'Class:AzureCI/Attribute:azuretags+' => 'Custom tags attached to the CI',
 ));
 
 //
@@ -183,6 +185,14 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureDisk/Attribute:sku/Value:standardssd_lrs' => 'StandardSSD LRS',
 	'Class:AzureDisk/Attribute:sku/Value:standardssd_zrs' => 'StandardSSD ZRS',
 	'Class:AzureDisk/Attribute:sku/Value:ultrassd_lrs' => 'UltraSSD LRS',
+	'Class:AzureDisk/Attribute:azuresku_id' => 'SKU',
+	'Class:AzureDisk/Attribute:azuresku_id+' => 'Stock Keeping Unit',
+	'Class:AzureDisk/Attribute:maxsizegib' => 'Max size (GB)',
+	'Class:AzureDisk/Attribute:maxsizegib+' => '',
+	'Class:AzureDisk/Attribute:maxiops' => 'Max IO/s',
+	'Class:AzureDisk/Attribute:maxiops+' => '',
+	'Class:AzureDisk/Attribute:maxbandwidthmbps' => 'Max bandwidth (MB/s)',
+	'Class:AzureDisk/Attribute:maxbandwidthmbps+' => '',
 ));
 
 //
@@ -580,6 +590,45 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
+// AzureSKU
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzureSKU' => 'Azure SKU',
+	'Class:AzureSKU+' => 'Azure Stock Keeping Unit',
+	'Class:AzureSKU/Name' => '%1$s',
+	'Class:AzureSKU/Attribute:family' => 'Family',
+	'Class:AzureSKU/Attribute:family+' => '',
+	'Class:AzureSKU/Attribute:maxnetworkinterfaces' => 'Network Interfaces',
+	'Class:AzureSKU/Attribute:maxnetworkinterfaces+' => 'Maximum number of Network Interfaces allowed',
+	'Class:AzureSKU/Attribute:maxresourcevolumemb' => 'Resource volume size (MB)',
+	'Class:AzureSKU/Attribute:maxresourcevolumemb+' => 'Resource volume size allowed',
+	'Class:AzureSKU/Attribute:memorygb' => 'Memory (GB)',
+	'Class:AzureSKU/Attribute:memorygb+' => 'Memory size',
+	'Class:AzureSKU/Attribute:osvhdsizemb' => 'OS VHD Disk size (MB)',
+	'Class:AzureSKU/Attribute:osvhdsizemb+' => 'OS VHD disk size allowed',
+	'Class:AzureSKU/Attribute:size' => 'Size',
+	'Class:AzureSKU/Attribute:size+' => '',
+	'Class:AzureSKU/Attribute:tier' => 'Tier',
+	'Class:AzureSKU/Attribute:tier+' => '',
+	'Class:AzureSKU/Attribute:type' => 'Type',
+	'Class:AzureSKU/Attribute:type+' => 'Resource type',
+	'Class:AzureSKU/Attribute:vcpus' => 'vCPUs',
+	'Class:AzureSKU/Attribute:vcpus+' => 'Number of vCPUs supported',
+	'Class:AzureSKU/Attribute:vcpuspercore' => 'vCPUs per core',
+	'Class:AzureSKU/Attribute:vcpuspercore+' => 'Number ov vCPUs per core',
+	'Class:AzureSKU/Attribute:azurevirtualmachines_list' => 'VMs',
+	'Class:AzureSKU/Attribute:azurevirtualmachines_list+' => 'List of all VMs using that SKU',
+	'Class:AzureSKU/Attribute:maxsizegib' => 'Max size (GB)',
+	'Class:AzureSKU/Attribute:maxsizegib+' => '',
+	'Class:AzureSKU/Attribute:maxiops' => 'Max IO/s',
+	'Class:AzureSKU/Attribute:maxiops+' => '',
+	'Class:AzureSKU/Attribute:maxbandwidthmbps' => 'Max bandwidth (MB/s)',
+	'Class:AzureSKU/Attribute:maxbandwidthmbps+' => '',
+	'Class:AzureSKU/Attribute:azuredisks_list' => 'Disks',
+	'Class:AzureSKU/Attribute:azuredisks_list+' => 'List of all Disks using that SKU',
+));
+
+//
 // AzureStorage
 //
 Dict::Add('EN US', 'English', 'English', array(
@@ -712,10 +761,14 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVirtualMachine/Attribute:azureimage_osversion_id+' => 'OS version of the initial image',
 	'Class:AzureVirtualMachine/Attribute:azurenics_list' => 'Network interfaces',
 	'Class:AzureVirtualMachine/Attribute:azurevmdisks_list' => 'Disks',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize' => 'Size',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize+' => '',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number' => 'vCPU',
-	'Class:AzureVirtualMachine/Attribute:azurevmsize_core_number+' => 'Virtual processors',
+	'Class:AzureVirtualMachine/Attribute:azuresku_id' => 'SKU',
+	'Class:AzureVirtualMachine/Attribute:azuresku_id+' => 'Stock Keeping Unit',
+	'Class:AzureVirtualMachine/Attribute:memorygb' => 'Memory (GB)',
+	'Class:AzureVirtualMachine/Attribute:memorygb+' => 'Memory size',
+	'Class:AzureVirtualMachine/Attribute:vcpus' => 'vCPUs',
+	'Class:AzureVirtualMachine/Attribute:vcpus+' => 'Number of vCPUs supported',
+	'Class:AzureVirtualMachine/Attribute:azurevmid' => 'UUID',
+	'Class:AzureVirtualMachine/Attribute:azurevmid+' => 'VM unique ID',
 	'Class:AzureVirtualMachine/Attribute:managementip' => 'Management IP',
 	'Class:AzureVirtualMachine/Attribute:managementip+' => 'Management IP address',
 	'Class:AzureVirtualMachine/Attribute:osfamily_id' => 'OS family',
