@@ -1,6 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
   <classes>
+    <class id="AzureSKU" _delta="define">
+      <parent>Typology</parent>
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <db_table>azuresku</db_table>
+        <naming>
+          <attributes>
+            <attribute id="name"/>
+            <attribute id="size"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+            <attribute id="size"/>
+          </attributes>
+        </reconciliation>
+        <icon>assets/img/icons8-adjustment.svg</icon>
+      </properties>
+      <fields>
+        <field id="family" xsi:type="AttributeString">
+          <sql>family</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="maxnetworkinterfaces" xsi:type="AttributeString">
+          <sql>maxnetworkinterfaces</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="maxresourcevolumemb" xsi:type="AttributeString">
+          <sql>maxresourcevolumemb</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="memorygb" xsi:type="AttributeString">
+          <sql>memorygb</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="osvhdsizemb" xsi:type="AttributeString">
+          <sql>osvhdsizemb</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="size" xsi:type="AttributeString">
+          <sql>size</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="tier" xsi:type="AttributeString">
+          <sql>tier</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="type" xsi:type="AttributeString">
+          <sql>type</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="vcpus" xsi:type="AttributeString">
+          <sql>vcpus</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="vcpuspercore" xsi:type="AttributeString">
+          <sql>vcpuspercore</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="azurevirtualmachines_list" xsi:type="AttributeLinkedSet">
+          <linked_class>AzureVirtualMachine</linked_class>
+          <ext_key_to_me>azuresku_id</ext_key_to_me>
+          <tracking_level>list</tracking_level>
+          <edit_mode>add_remove</edit_mode>
+        </field>
+        <field id="maxsizegib" xsi:type="AttributeString">
+          <sql>maxsizegib</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="maxiops" xsi:type="AttributeString">
+          <sql>maxiops</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="maxbandwidthmbps" xsi:type="AttributeString">
+          <sql>maxbandwidthmbps</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="azuredisks_list" xsi:type="AttributeLinkedSet">
+          <linked_class>AzureDisk</linked_class>
+          <ext_key_to_me>azuresku_id</ext_key_to_me>
+          <tracking_level>list</tracking_level>
+          <edit_mode>add_remove</edit_mode>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list>
+          <items>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="size">
+              <rank>30</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="family">
+              <rank>30</rank>
+            </item>
+            <item id="tier">
+              <rank>40</rank>
+            </item>
+          </items>
+        </search>
+        <details>
+          <items>
+            <item id="col:col0">
+              <items>
+                <item id="fieldset:AzureCI:baseinfo">
+                  <items>
+                    <item id="name">
+                      <rank>10</rank>
+                    </item>
+                    <item id="type">
+                      <rank>20</rank>
+                    </item>
+                    <item id="family">
+                      <rank>30</rank>
+                    </item>
+                    <item id="tier">
+                      <rank>40</rank>
+                    </item>
+                    <item id="size">
+                      <rank>50</rank>
+                    </item>
+                  </items>
+                  <rank>20</rank>
+                </item>
+              </items>
+              <rank>10</rank>
+            </item>
+            <item id="col:col1">
+              <items>
+                <item id="fieldset:AzureCI:otherinfo">
+                  <items>
+                    <item id="maxresourcevolumemb">
+                      <rank>10</rank>
+                    </item>
+                    <item id="osvhdsizemb">
+                      <rank>20</rank>
+                    </item>
+                    <item id="vcpus">
+                      <rank>30</rank>
+                    </item>
+                    <item id="memorygb">
+                      <rank>40</rank>
+                    </item>
+                    <item id="vcpuspercore">
+                      <rank>50</rank>
+                    </item>
+                    <item id="maxnetworkinterfaces">
+                      <rank>60</rank>
+                    </item>
+                    <item id="maxsizegib">
+                      <rank>70</rank>
+                    </item>
+                    <item id="maxiops">
+                      <rank>80</rank>
+                    </item>
+                    <item id="maxbandwidthmbps">
+                      <rank>90</rank>
+                    </item>
+                  </items>
+                  <rank>10</rank>
+                </item>
+              </items>
+              <rank>20</rank>
+            </item>
+            <item id="azurevirtualmachines_list">
+              <rank>50</rank>
+            </item>
+            <item id="azuredisks_list">
+              <rank>60</rank>
+            </item>
+          </items>
+        </details>
+        <default_search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="family">
+              <rank>30</rank>
+            </item>
+            <item id="tier">
+              <rank>40</rank>
+            </item>
+          </items>
+        </default_search>
+      </presentation>
+    </class>
     <class id="Location" _created_in="itop-structure" _delta="must_exist">
       <fields>
         <field id="code" xsi:type="AttributeString" _delta="define">
@@ -898,274 +1141,6 @@
             </item>
             <item id="azureid">
               <rank>70</rank>
-            </item>
-          </items>
-        </default_search>
-      </presentation>
-    </class>
-    <class id="AzureSKU" _delta="define">
-      <parent>AzureCompute</parent>
-      <properties>
-        <category>bizmodel,searchable</category>
-        <abstract>false</abstract>
-        <db_table>azuresku</db_table>
-        <naming>
-          <attributes>
-            <attribute id="name"/>
-          </attributes>
-        </naming>
-        <reconciliation>
-          <attributes>
-            <attribute id="name"/>
-            <attribute id="size"/>
-            <attribute id="org_id"/>
-            <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
-          </attributes>
-        </reconciliation>
-        <icon>assets/img/icons8-adjustment.svg</icon>
-      </properties>
-      <fields>
-        <field id="family" xsi:type="AttributeString">
-          <sql>family</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="maxnetworkinterfaces" xsi:type="AttributeString">
-          <sql>maxnetworkinterfaces</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="maxresourcevolumemb" xsi:type="AttributeString">
-          <sql>maxresourcevolumemb</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="memorygb" xsi:type="AttributeString">
-          <sql>memorygb</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="osvhdsizemb" xsi:type="AttributeString">
-          <sql>osvhdsizemb</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="size" xsi:type="AttributeString">
-          <sql>size</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="tier" xsi:type="AttributeString">
-          <sql>tier</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="type" xsi:type="AttributeString">
-          <sql>type</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="vcpus" xsi:type="AttributeString">
-          <sql>vcpus</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="vcpuspercore" xsi:type="AttributeString">
-          <sql>vcpuspercore</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="azurevirtualmachines_list" xsi:type="AttributeLinkedSet">
-          <linked_class>AzureVirtualMachine</linked_class>
-          <ext_key_to_me>azuresku_id</ext_key_to_me>
-          <tracking_level>list</tracking_level>
-          <edit_mode>add_remove</edit_mode>
-        </field>
-        <field id="maxsizegib" xsi:type="AttributeString">
-          <sql>maxsizegib</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="maxiops" xsi:type="AttributeString">
-          <sql>maxiops</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="maxbandwidthmbps" xsi:type="AttributeString">
-          <sql>maxbandwidthmbps</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-          <validation_pattern/>
-          <tracking_level>all</tracking_level>
-        </field>
-        <field id="azuredisks_list" xsi:type="AttributeLinkedSet">
-          <linked_class>AzureDisk</linked_class>
-          <ext_key_to_me>azuresku_id</ext_key_to_me>
-          <tracking_level>list</tracking_level>
-          <edit_mode>add_remove</edit_mode>
-        </field>
-      </fields>
-      <methods/>
-      <presentation>
-        <list>
-          <items>
-            <item id="org_id">
-              <rank>10</rank>
-            </item>
-            <item id="type">
-              <rank>20</rank>
-            </item>
-            <item id="size">
-              <rank>30</rank>
-            </item>
-            <item id="azuresubscription_id">
-              <rank>40</rank>
-            </item>
-          </items>
-        </list>
-        <search>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="type">
-              <rank>30</rank>
-            </item>
-          </items>
-        </search>
-        <details>
-          <items>
-            <item id="col:col0">
-              <items>
-                <item id="fieldset:AzureCI:baseinfo">
-                  <items>
-                    <item id="name">
-                      <rank>10</rank>
-                    </item>
-                    <item id="org_id">
-                      <rank>20</rank>
-                    </item>
-                    <item id="status">
-                      <rank>30</rank>
-                    </item>
-                    <item id="business_criticity">
-                      <rank>50</rank>
-                    </item>
-                  </items>
-                  <rank>10</rank>
-                </item>
-                <item id="fieldset:AzureCI:moreinfo">
-                  <items>
-                    <item id="type">
-                      <rank>10</rank>
-                    </item>
-                    <item id="family">
-                      <rank>20</rank>
-                    </item>
-                    <item id="tier">
-                      <rank>30</rank>
-                    </item>
-                    <item id="size">
-                      <rank>40</rank>
-                    </item>
-                    <item id="description">
-                      <rank>50</rank>
-                    </item>
-                  </items>
-                  <rank>20</rank>
-                </item>
-              </items>
-              <rank>10</rank>
-            </item>
-            <item id="col:col1">
-              <items>
-                <item id="fieldset:AzureCI:otherinfo">
-                  <items>
-                    <item id="maxresourcevolumemb">
-                      <rank>10</rank>
-                    </item>
-                    <item id="osvhdsizemb">
-                      <rank>20</rank>
-                    </item>
-                    <item id="vcpus">
-                      <rank>30</rank>
-                    </item>
-                    <item id="memorygb">
-                      <rank>40</rank>
-                    </item>
-                    <item id="vcpuspercore">
-                      <rank>50</rank>
-                    </item>
-                    <item id="maxnetworkinterfaces">
-                      <rank>60</rank>
-                    </item>
-                    <item id="maxsizegib">
-                      <rank>70</rank>
-                    </item>
-                    <item id="maxiops">
-                      <rank>80</rank>
-                    </item>
-                    <item id="maxbandwidthmbps">
-                      <rank>90</rank>
-                    </item>
-                  </items>
-                  <rank>10</rank>
-                </item>
-              </items>
-              <rank>20</rank>
-            </item>
-            <item id="contacts_list">
-              <rank>30</rank>
-            </item>
-            <item id="documents_list">
-              <rank>40</rank>
-            </item>
-            <item id="azurevirtualmachines_list">
-              <rank>50</rank>
-            </item>
-            <item id="azuredisks_list">
-              <rank>60</rank>
-            </item>
-          </items>
-        </details>
-        <default_search>
-          <items>
-            <item id="name">
-              <rank>10</rank>
-            </item>
-            <item id="org_id">
-              <rank>20</rank>
-            </item>
-            <item id="type">
-              <rank>30</rank>
             </item>
           </items>
         </default_search>
