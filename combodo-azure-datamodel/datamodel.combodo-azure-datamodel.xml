@@ -553,7 +553,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10007-icon-service-Resource-Groups.svg</icon>
@@ -5579,6 +5578,13 @@
         <field id="maxbandwidthmbps" xsi:type="AttributeExternalField">
           <extkey_attcode>azuresku_id</extkey_attcode>
           <target_attcode>maxbandwidthmbps</target_attcode>
+        </field>
+        <field id="size" xsi:type="AttributeString">
+          <sql>size</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <validation_pattern/>
+          <tracking_level>all</tracking_level>
         </field>
       </fields>
       <methods/>
