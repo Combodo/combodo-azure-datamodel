@@ -296,7 +296,6 @@
             <attribute id="organization_name"/>
             <attribute id="provider_id"/>
             <attribute id="provider_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10002-icon-service-Subscriptions.svg</icon>
@@ -1161,7 +1160,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10040-icon-service-VM-Images-Classic.svg</icon>
@@ -1524,7 +1522,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10023-icon-service-Kubernetes-Services.svg</icon>
@@ -1830,7 +1827,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/icons8-serveur-48.png</icon>
@@ -2135,7 +2131,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -2357,7 +2352,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -2582,7 +2576,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -2807,7 +2800,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -3427,7 +3419,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10062-icon-service-Load-Balancers.svg</icon>
@@ -3618,7 +3609,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/icon-service-Load-Balancers-ipconfig.png</icon>
@@ -3862,7 +3852,6 @@
         </naming>
         <reconciliation>
           <attributes>
-            <attribute id="finalclass"/>
             <attribute id="name"/>
             <attribute id="org_id"/>
           </attributes>
@@ -4075,7 +4064,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/icon-service-Network-Interfaces-ipconfig.png</icon>
@@ -4333,7 +4321,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/icon-private-endpoint.png</icon>
@@ -4546,7 +4533,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10069-icon-service-Public-IP-Addresses.png</icon>
@@ -4802,7 +4788,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10372-icon-service-Public-IP-Prefixes.png</icon>
@@ -5043,7 +5028,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10075-icon-service-Virtual-Networks-Classic.svg</icon>
@@ -5247,7 +5231,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -5500,7 +5483,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
         <icon>assets/img/10032-icon-service-Disks.svg</icon>
@@ -5778,7 +5760,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
@@ -6046,7 +6027,6 @@
             <attribute id="name"/>
             <attribute id="org_id"/>
             <attribute id="organization_name"/>
-            <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
       </properties>
