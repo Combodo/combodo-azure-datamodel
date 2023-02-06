@@ -4340,6 +4340,32 @@
         <icon>assets/img/icon-private-endpoint.png</icon>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="0">
+                  <rank>0</rank>
+                  <dashlets>
+                    <dashlet id="CUSTOM_AzurePrivateEndpoint__overview_ID_row0_col0_1" xsi:type="DashletObjectList">
+                      <rank>0</rank>
+                      <title>AzureCI:Overview:PublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzurePrivateEndpoint AS l ON l.azurenetworkinterface_id = ni.id JOIN AzurePrivateEndpoint AS pe ON l.azureprivateendpoint_id = pe.id WHERE pe.id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="azuresubnet_id" xsi:type="AttributeExternalKey">
           <sql>azuresubnet_id</sql>
           <filter/>
@@ -4464,17 +4490,20 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azurenetworkinterfaces_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
+            </item>
+            <item id="azurenetworkinterfaces_list">
+              <rank>70</rank>
             </item>
           </items>
         </details>
