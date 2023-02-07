@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright   Copyright (C) 2010-2022 Combodo SARL
+ * @copyright   Copyright (C) 2023 Combodo SARL
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
 
@@ -33,6 +33,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'AzureCI:moreinfo' => 'Informations complémentaires',
 	'AzureCI:date' => 'Dates',
 	'AzureCI:otherinfo' => 'Autres informations',
+	'AzureCI:Overview:AzurePublicIPAddresses' => 'Adresses IP Azure publiques portées par les interfaces',
 	'Class:AzureCI/Attribute:azureavailabilitytype' => 'Options de disponibilité',
 	'Class:AzureCI/Attribute:azureavailabilitytype+' => 'Disponibilité du composant Azure sur les zones',
 	'Class:AzureCI/Attribute:azureavailabilitytype/Value:1' => 'Zone 1',
@@ -75,6 +76,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureCI/Attribute:status/Value:production' => 'production',
 	'Class:AzureCI/Attribute:status/Value:stock' => 'stock',
 	'Class:AzureCI/Attribute:status/Value:stopped' => 'arrêté',
+	'Class:AzureCI/Attribute:azuretags' => 'Tags',
+	'Class:AzureCI/Attribute:azuretags+' => 'Tags spécifiques attachés au CI',
 ));
 
 //
@@ -173,16 +176,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureDisk/Attribute:provisioning_status/Value:failed' => 'Failed',
 	'Class:AzureDisk/Attribute:provisioning_status/Value:inprogress' => 'In progress',
 	'Class:AzureDisk/Attribute:provisioning_status/Value:succeeded' => 'Succeeded',
-	'Class:AzureDisk/Attribute:size' => 'Taille(Go)',
-	'Class:AzureDisk/Attribute:sku' => 'SKU',
-	'Class:AzureDisk/Attribute:sku/Value:Premium_LRS' => 'Premium_LRS',
-	'Class:AzureDisk/Attribute:sku/Value:StandardSSD_LRS' => 'StandardSSD_LRS',
-	'Class:AzureDisk/Attribute:sku/Value:premium_lrs' => 'Premium LRS',
-	'Class:AzureDisk/Attribute:sku/Value:premium_zrs' => 'Premium ZRS',
-	'Class:AzureDisk/Attribute:sku/Value:standard_lrs' => 'Standard LRS',
-	'Class:AzureDisk/Attribute:sku/Value:standardssd_lrs' => 'StandardSSD LRS',
-	'Class:AzureDisk/Attribute:sku/Value:standardssd_zrs' => 'StandardSSD ZRS',
-	'Class:AzureDisk/Attribute:sku/Value:ultrassd_lrs' => 'UltraSSD LRS',
+	'Class:AzureDisk/Attribute:azuresku_id' => 'SKU',
+	'Class:AzureDisk/Attribute:azuresku_id+' => 'Stock Keeping Unit',
 ));
 
 //
@@ -235,6 +230,9 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureLoadBalancer' => 'Équilibrage de charge',
 	'Class:AzureLoadBalancer+' => 'Équilibrage de charge Azure',
 	'Class:AzureLoadBalancer/Name' => '%1$s',
+	'AzureLoadBalancer:Overview:AzurePublicIPAddresses' => 'Adresses IP Azure publiques portées par le CI',
+	'Class:AzureLoadBalancer/Attribute:overview' => 'IPs',
+	'Class:AzureLoadBalancer/Attribute:overview+' => '',
 	'Class:AzureLoadBalancer/Attribute:ipaddress' => 'Adresse IP du frontal',
 	'Class:AzureLoadBalancer/Attribute:sku' => 'SKU',
 	'Class:AzureLoadBalancer/Attribute:sku/Value:basic' => 'De base',
@@ -357,6 +355,9 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureNetworkInterface' => 'Interface réseau',
 	'Class:AzureNetworkInterface+' => 'Interface réseau Azure',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
+	'AzureNetworkInterface:Overview:AzurePublicIPAddresses' => 'Adresses IP Azure publiques portées par l\'interface',
+	'Class:AzureNetworkInterface/Attribute:overview' => 'IPs',
+	'Class:AzureNetworkInterface/Attribute:overview+' => '',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'VM Azure',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => 'Attaché à',
 	'Class:AzureNetworkInterface/Attribute:azurevnet_id' => 'VNet',
@@ -445,6 +446,9 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:AzurePrivateEndpoint' => 'Azure Private Endpoint',
     'Class:AzurePrivateEndpoint+' => '',
     'Class:AzurePrivateEndpoint/Name' => '%1$s',
+	'AzurePrivateEndpoint:Overview:AzurePublicIPAddresses' => 'Adresses IPs Azure publiques portées par le private endpoint',
+	'Class:AzurePrivateEndpoint/Attribute:overview' => 'IPs',
+	'Class:AzurePrivateEndpoint/Attribute:overview+' => '',
     'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id' => 'Azure Subnet',
     'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id+' => '',
     'Class:AzurePrivateEndpoint/Attribute:azurenetworkinterfaces_list' => 'Interfaces',
@@ -580,6 +584,45 @@ Dict::Add('FR FR', 'French', 'Français', array(
 ));
 
 //
+// AzureSKU
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:AzureSKU' => 'Azure SKU',
+	'Class:AzureSKU+' => 'Azure Stock Keeping Unit',
+	'Class:AzureSKU/Name' => '%1$s - %2$s',
+	'Class:AzureSKU/Attribute:family' => 'Famille',
+	'Class:AzureSKU/Attribute:family+' => '',
+	'Class:AzureSKU/Attribute:maxnetworkinterfaces' => 'Interfaces réseau',
+	'Class:AzureSKU/Attribute:maxnetworkinterfaces+' => 'Nombre maximum d\'interfaces réseau autorisées',
+	'Class:AzureSKU/Attribute:maxresourcevolumemb' => 'Taille de la ressource de stockage (MB)',
+	'Class:AzureSKU/Attribute:maxresourcevolumemb+' => 'Taille maximum de la resource de stockage autorisée',
+	'Class:AzureSKU/Attribute:memorygb' => 'Memoire (GB)',
+	'Class:AzureSKU/Attribute:memorygb+' => 'Taille de la mémoire',
+	'Class:AzureSKU/Attribute:osvhdsizemb' => 'Taille du disque OS VHD (MB)',
+	'Class:AzureSKU/Attribute:osvhdsizemb+' => 'Taille du disque OS VHD autorisée',
+	'Class:AzureSKU/Attribute:size' => 'Taille',
+	'Class:AzureSKU/Attribute:size+' => '',
+	'Class:AzureSKU/Attribute:tier' => 'Tier',
+	'Class:AzureSKU/Attribute:tier+' => '',
+	'Class:AzureSKU/Attribute:type' => 'Type',
+	'Class:AzureSKU/Attribute:type+' => 'Type de resource',
+	'Class:AzureSKU/Attribute:vcpus' => 'vCPUs',
+	'Class:AzureSKU/Attribute:vcpus+' => 'Nombre de vCPUs supportés',
+	'Class:AzureSKU/Attribute:vcpuspercore' => 'vCPUs par coeur',
+	'Class:AzureSKU/Attribute:vcpuspercore+' => 'Nombre de vCPUs par coeur',
+	'Class:AzureSKU/Attribute:azurevirtualmachines_list' => 'VMs',
+	'Class:AzureSKU/Attribute:azurevirtualmachines_list+' => 'Liste de toutes les VMs utilisant ce SKU',
+	'Class:AzureSKU/Attribute:maxsizegib' => 'Taille maxium (GB)',
+	'Class:AzureSKU/Attribute:maxsizegib+' => '',
+	'Class:AzureSKU/Attribute:maxiops' => 'IO/s maximums',
+	'Class:AzureSKU/Attribute:maxiops+' => '',
+	'Class:AzureSKU/Attribute:maxbandwidthmbps' => 'Bande passante maxium (MB/s)',
+	'Class:AzureSKU/Attribute:maxbandwidthmbps+' => '',
+	'Class:AzureSKU/Attribute:azuredisks_list' => 'Disques',
+	'Class:AzureSKU/Attribute:azuredisks_list+' => 'Liste de tous les disques utilisant ce SKU',
+));
+
+//
 // AzureStorage
 //
 Dict::Add('FR FR', 'French', 'Français', array(
@@ -614,6 +657,9 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:AzureSubnet' => 'Azure Subnet',
     'Class:AzureSubnet+' => '',
     'Class:AzureSubnet/Name' => '%1$s',
+	'AzureSubnet:Overview:AzurePublicIPAddresses' => 'Adresses IP Azure Publiques portées par le sous-réseau',
+	'Class:AzureSubnet/Attribute:overview' => 'IPs',
+	'Class:AzureSubnet/Attribute:overview+' => '',
     'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
     'Class:AzureSubnet/Attribute:ip+' => '',
     'Class:AzureSubnet/Attribute:mask' => 'Mask',
@@ -702,6 +748,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVirtualMachine' => 'VM Azure',
 	'Class:AzureVirtualMachine+' => 'Machine virtuelle Azure',
 	'Class:AzureVirtualMachine/Name' => '%1$s',
+	'Class:AzureVirtualMachine/Attribute:overview' => 'IPs',
+	'Class:AzureVirtualMachine/Attribute:overview+' => '',
 	'Class:AzureVirtualMachine/Attribute:azureavailability_id' => 'Options de disponibilité',
 	'Class:AzureVirtualMachine/Attribute:azureimage_id' => 'Azure image',
 	'Class:AzureVirtualMachine/Attribute:azureimage_osfamily_id' => 'Image - Famille OS',
@@ -755,6 +803,9 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:AzureVNet' => 'VNet',
 	'Class:AzureVNet+' => 'Réseau virtuel Azure',
 	'Class:AzureVNet/Name' => '%1$s',
+	'AzureVNet:Overview:AzurePublicIPAddresses' => 'Adresses IP Azure publiques portées par le VNet',
+	'Class:AzureVNet/Attribute:overview' => 'IPs Overview',
+	'Class:AzureVNet/Attribute:overview+' => '',
 	'Class:AzureVNet/Attribute:address_space' => 'Espace d\'adressage',
 	'Class:AzureVNet/Attribute:address_space+' => '',
 	'Class:AzureVNet/Attribute:azurenetworkinterfaces_list' => 'Interfaces',

@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright   Copyright (C) 2010-2022 Combodo SARL
+ * @copyright   Copyright (C) 2023 Combodo SARL
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
 
@@ -231,7 +231,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureLoadBalancer+' => '',
 	'Class:AzureLoadBalancer/Name' => '%1$s',
 	'AzureLoadBalancer:Overview:AzurePublicIPAddresses' => 'Azure Public IP Addresses hosted by the load balancer',
-	'Class:AzureLoadBalancer/Attribute:overview' => 'Overview',
+	'Class:AzureLoadBalancer/Attribute:overview' => 'IPs Overview',
 	'Class:AzureLoadBalancer/Attribute:overview+' => '',
 	'Class:AzureLoadBalancer/Attribute:ipaddress' => 'Front IP address',
 	'Class:AzureLoadBalancer/Attribute:sku' => 'SKU',
@@ -356,7 +356,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureNetworkInterface+' => '',
 	'Class:AzureNetworkInterface/Name' => '%1$s',
 	'AzureNetworkInterface:Overview:AzurePublicIPAddresses' => 'Azure Public IP Addresses hosted by the interface',
-	'Class:AzureNetworkInterface/Attribute:overview' => 'Overview',
+	'Class:AzureNetworkInterface/Attribute:overview' => 'IPs Overview',
 	'Class:AzureNetworkInterface/Attribute:overview+' => '',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id' => 'Azure VM',
 	'Class:AzureNetworkInterface/Attribute:azurevirtualmachine_id+' => '',
@@ -447,7 +447,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:AzurePrivateEndpoint+' => '',
     'Class:AzurePrivateEndpoint/Name' => '%1$s',
 	'AzurePrivateEndpoint:Overview:AzurePublicIPAddresses' => 'Azure Public IP Addresses hosted by the private endpoint',
-	'Class:AzurePrivateEndpoint/Attribute:overview' => 'Overview',
+	'Class:AzurePrivateEndpoint/Attribute:overview' => 'IPs Overview',
 	'Class:AzurePrivateEndpoint/Attribute:overview+' => '',
     'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id' => 'Azure Subnet',
     'Class:AzurePrivateEndpoint/Attribute:azuresubnet_id+' => '',
@@ -609,7 +609,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureSKU/Attribute:vcpus' => 'vCPUs',
 	'Class:AzureSKU/Attribute:vcpus+' => 'Number of vCPUs supported',
 	'Class:AzureSKU/Attribute:vcpuspercore' => 'vCPUs per core',
-	'Class:AzureSKU/Attribute:vcpuspercore+' => 'Number ov vCPUs per core',
+	'Class:AzureSKU/Attribute:vcpuspercore+' => 'Number of vCPUs per core',
 	'Class:AzureSKU/Attribute:azurevirtualmachines_list' => 'VMs',
 	'Class:AzureSKU/Attribute:azurevirtualmachines_list+' => 'List of all VMs using that SKU',
 	'Class:AzureSKU/Attribute:maxsizegib' => 'Max size (GB)',
@@ -658,7 +658,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureSubnet+' => '',
 	'Class:AzureSubnet/Name' => '%1$s',
 	'AzureSubnet:Overview:AzurePublicIPAddresses' => 'Azure Public IP Addresses hosted by the subnet',
-	'Class:AzureSubnet/Attribute:overview' => 'Overview',
+	'Class:AzureSubnet/Attribute:overview' => 'IPs Overview',
 	'Class:AzureSubnet/Attribute:overview+' => '',
 	'Class:AzureSubnet/Attribute:ip' => 'Subnet IP',
 	'Class:AzureSubnet/Attribute:ip+' => '',
@@ -748,7 +748,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVirtualMachine' => 'Azure VM',
 	'Class:AzureVirtualMachine+' => 'Azure Virtual Machine',
 	'Class:AzureVirtualMachine/Name' => '%1$s',
-	'Class:AzureVirtualMachine/Attribute:overview' => 'Overview',
+	'Class:AzureVirtualMachine/Attribute:overview' => 'IPs Overview',
 	'Class:AzureVirtualMachine/Attribute:overview+' => '',
 	'Class:AzureVirtualMachine/Attribute:azureavailability_id' => 'Availability option',
 	'Class:AzureVirtualMachine/Attribute:azureimage_id' => 'Azure image',
@@ -804,7 +804,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:AzureVNet+' => 'Azure Virtual network',
 	'Class:AzureVNet/Name' => '%1$s',
 	'AzureVNet:Overview:AzurePublicIPAddresses' => 'Azure Public IP Addresses hosted by the VNet',
-	'Class:AzureVNet/Attribute:overview' => 'Overview',
+	'Class:AzureVNet/Attribute:overview' => 'IPs Overview',
 	'Class:AzureVNet/Attribute:overview+' => '',
 	'Class:AzureVNet/Attribute:address_space' => 'Address space',
 	'Class:AzureVNet/Attribute:address_space+' => '',
