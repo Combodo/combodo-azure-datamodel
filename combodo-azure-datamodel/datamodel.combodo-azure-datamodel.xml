@@ -1165,6 +1165,32 @@
         <icon>assets/img/10040-icon-service-VM-Images-Classic.svg</icon>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="10">
+                  <rank>10</rank>
+                  <dashlets>
+                    <dashlet id="AzureVirtualMachine_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureCI:Overview:AzurePublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id WHERE ni.azurevirtualmachine_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="osfamily_id" xsi:type="AttributeExternalKey">
           <sql>osfamily_id</sql>
           <filter/>
@@ -1363,23 +1389,26 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azurevmdisks_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
             </item>
-            <item id="azurenics_list">
+            <item id="azurevmdisks_list">
               <rank>70</rank>
             </item>
-            <item id="softwareinstances_list">
+            <item id="azurenics_list">
               <rank>80</rank>
+            </item>
+            <item id="softwareinstances_list">
+              <rank>90</rank>
             </item>
           </items>
         </details>
@@ -3424,6 +3453,32 @@
         <icon>assets/img/10062-icon-service-Load-Balancers.svg</icon>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="10">
+                  <rank>10</rank>
+                  <dashlets>
+                    <dashlet id="AzureLoadBalancer_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureLoadBalancer:Overview:AzurePublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureLoadBalancerFrontendIPConfig AS lbfeipc ON lbfeipc.public_ip_id = pip.id WHERE lbfeipc.azureloadbalancer_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="sku" xsi:type="AttributeEnum">
           <sql>sku</sql>
           <values>
@@ -3555,17 +3610,20 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azureloadbalancerfrontendipconfigs_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
+            </item>
+            <item id="azureloadbalancerfrontendipconfigs_list">
+              <rank>70</rank>
             </item>
           </items>
         </details>
@@ -3858,6 +3916,32 @@
         </reconciliation>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="10">
+                  <rank>10</rank>
+                  <dashlets>
+                    <dashlet id="AzureNetworkInterface_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureNetworkInterface:Overview:AzurePublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id WHERE niipc.azurenetworkinterface_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="azurevirtualmachine_id" xsi:type="AttributeExternalKey">
           <sql>azurevirtualmachine_id</sql>
           <filter>SELECT AzureVirtualMachine WHERE location_id =:this-&gt;location_id</filter>
@@ -4001,23 +4085,26 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azurevnets_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
             </item>
-            <item id="azurenetworkinterfaceipconfigs_list">
+            <item id="azurevnets_list">
               <rank>70</rank>
             </item>
-            <item id="azureprivateendpoints_list">
+            <item id="azurenetworkinterfaceipconfigs_list">
               <rank>80</rank>
+            </item>
+            <item id="azureprivateendpoints_list">
+              <rank>90</rank>
             </item>
           </items>
         </details>
@@ -4337,12 +4424,12 @@
                 <interval>300</interval>
               </auto_reload>
               <cells>
-                <cell id="0">
-                  <rank>0</rank>
+                <cell id="10">
+                  <rank>10</rank>
                   <dashlets>
-                    <dashlet id="CUSTOM_AzurePrivateEndpoint__overview_ID_row0_col0_1" xsi:type="DashletObjectList">
-                      <rank>0</rank>
-                      <title>AzureCI:Overview:PublicIPAddresses</title>
+                    <dashlet id="AzurePrivateEndpoint_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzurePrivateEndpoint:Overview:AzurePublicIPAddresses</title>
                       <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzurePrivateEndpoint AS l ON l.azurenetworkinterface_id = ni.id JOIN AzurePrivateEndpoint AS pe ON l.azureprivateendpoint_id = pe.id WHERE pe.id = :this->id</query>
                       <menu>false</menu>
                     </dashlet>
@@ -4793,6 +4880,32 @@
         <icon>assets/img/10372-icon-service-Public-IP-Prefixes.png</icon>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="10">
+                  <rank>10</rank>
+                  <dashlets>
+                    <dashlet id="AzureSubnet_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureSubnet:Overview:AzurePublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id WHERE niipc.azuresubnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="ip" xsi:type="AttributeString">
           <sql>ip</sql>
           <default_value/>
@@ -4962,20 +5075,23 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azurenetworkinterfaceipconfigs_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
             </item>
-            <item id="azureprivateendpoints_list">
+            <item id="azurenetworkinterfaceipconfigs_list">
               <rank>70</rank>
+            </item>
+            <item id="azureprivateendpoints_list">
+              <rank>80</rank>
             </item>
           </items>
         </details>
@@ -5033,6 +5149,32 @@
         <icon>assets/img/10075-icon-service-Virtual-Networks-Classic.svg</icon>
       </properties>
       <fields>
+        <field id="overview" xsi:type="AttributeDashboard">
+          <is_user_editable>true</is_user_editable>
+          <definition>
+            <dashboard>
+              <layout>DashboardLayoutOneCol</layout>
+              <title/>
+              <auto_reload>
+                <enabled>false</enabled>
+                <interval>300</interval>
+              </auto_reload>
+              <cells>
+                <cell id="10">
+                  <rank>10</rank>
+                  <dashlets>
+                    <dashlet id="AzureVNet_AzurePublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureVNet:Overview:AzurePublicIPAddresses</title>
+                      <query>SELECT AzurePublicIPAddress AS pip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzureVNet AS l ON l.azurenetworkinterface_id = ni.id  WHERE l.azurevnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="address_space" xsi:type="AttributeString">
           <sql>address_space</sql>
           <default_value/>
@@ -5167,20 +5309,23 @@
               </items>
               <rank>20</rank>
             </item>
-            <item id="contacts_list">
+            <item id="overview">
               <rank>30</rank>
             </item>
-            <item id="documents_list">
+            <item id="contacts_list">
               <rank>40</rank>
             </item>
-            <item id="applicationsolution_list">
+            <item id="documents_list">
               <rank>50</rank>
             </item>
-            <item id="azurenetworkinterfaces_list">
+            <item id="applicationsolution_list">
               <rank>60</rank>
             </item>
-            <item id="azuresubnets_list">
+            <item id="azurenetworkinterfaces_list">
               <rank>70</rank>
+            </item>
+            <item id="azuresubnets_list">
+              <rank>80</rank>
             </item>
           </items>
         </details>
