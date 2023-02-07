@@ -421,6 +421,22 @@
         </field>
       </fields>
     </class>
+    <class id="IPAddress" _delta="must_exist">
+      <fields>
+        <field id="azureip" xsi:type="AttributeEnum" _delta="define">
+          <sql>azureip</sql>
+          <values>
+            <value id="yes">yes</value>
+            <value id="no">no</value>
+          </values>
+          <default_value>no</default_value>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>list</display_style>
+          <dependencies/>
+          <tracking_level>all</tracking_level>
+        </field>
+      </fields>
+    </class>
     <class id="IPSubnet" _delta="must_exist">
       <fields>
         <field id="azuresubnet_id" xsi:type="AttributeExternalKey" _delta="define">
