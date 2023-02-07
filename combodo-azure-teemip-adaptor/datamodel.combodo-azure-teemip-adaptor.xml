@@ -1,8 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
   <classes>
+    <class id="AzureLoadBalancer" _delta="must_exist">
+      <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzureLoadBalancer_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureLoadBalancer:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureLoadBalancerFrontendIPConfig AS lbfeipc ON lbfeipc.public_ip_id = pip.id WHERE lbfeipc.azureloadbalancer_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzureLoadBalancer_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureLoadBalancer:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureLoadBalancerFrontendIPConfig AS lbfeipc ON lbfeipc.ip_id = ip.id WHERE lbfeipc.azureloadbalancer_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
+      </fields>
+    </class>
+    <class id="AzureLoadBalancerFrontendIPConfig" _delta="must_exist">
+      <fields>
+        <field id="private_ip" xsi:type="AttributeString" _delta="delete"/>
+        <field id="ip_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>ip_id</sql>
+          <filter>SELECT IPAddress AS i WHERE i.org_id = :this->org_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>IPAddress</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+       </fields>
+      <presentation>
+        <list _delta="must_exist">
+          <items>
+            <item id="private_ip" _delta="delete"/>
+            <item id="ip_id" _delta="define">
+              <rank>90</rank>
+            </item>
+          </items>
+        </list>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col0" _delta="must_exist">
+              <items>
+                <item id="fieldset:AzureCI:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="private_ip" _delta="delete"/>
+                    <item id="ip_id" _delta="define">
+                      <rank>40</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="AzureNetworkInterface" _delta="must_exist">
+      <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzureNetworkInterface_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureNetworkInterface:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id WHERE niipc.azurenetworkinterface_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzureNetworkInterface_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureNetworkInterface:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.ip_id = ip.id WHERE niipc.azurenetworkinterface_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
+      </fields>
+    </class>
+    <class id="AzureNetworkInterfaceIPConfig" _delta="must_exist">
+      <fields>
+        <field id="private_ip" xsi:type="AttributeString" _delta="delete"/>
+        <field id="ip_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>ip_id</sql>
+          <filter>SELECT IPAddress AS i WHERE i.org_id = :this->org_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>IPAddress</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list _delta="must_exist">
+          <items>
+            <item id="private_ip" _delta="delete"/>
+            <item id="ip_id" _delta="define">
+              <rank>90</rank>
+            </item>
+          </items>
+        </list>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col0" _delta="must_exist">
+              <items>
+                <item id="fieldset:AzureCI:moreinfo">
+                  <items>
+                    <item id="private_ip" _delta="delete"/>
+                    <item id="ip_id" _delta="define">
+                      <rank>40</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="AzurePublicIPAddress" _delta="must_exist">
+      <fields>
+        <field id="ip" xsi:type="AttributeString" _delta="delete"/>
+        <field id="ip_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>ip_id</sql>
+          <filter>SELECT IPAddress AS i WHERE i.org_id = :this->org_id</filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <target_class>IPAddress</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <tracking_level>all</tracking_level>
+        </field>
+        <field id="short_name" xsi:type="AttributeExternalField" _delta="redefine">
+          <extkey_attcode>ip_id</extkey_attcode>
+          <target_attcode>short_name</target_attcode>
+        </field>
+        <field id="fqdn" xsi:type="AttributeExternalField" _delta="redefine">
+          <extkey_attcode>ip_id</extkey_attcode>
+          <target_attcode>fqdn</target_attcode>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <list _delta="must_exist">
+          <items>
+            <item id="ip" _delta="delete"/>
+            <item id="ip_id" _delta="define">
+              <rank>90</rank>
+            </item>
+          </items>
+        </list>
+        <search _delta="must_exist">
+          <items>
+            <item id="ip" _delta="delete"/>
+            <item id="ip_id" _delta="define">
+              <rank>50</rank>
+            </item>
+          </items>
+        </search>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col0" _delta="must_exist">
+              <items>
+                <item id="fieldset:AzureCI:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ip" _delta="delete"/>
+                    <item id="ip_id" _delta="define">
+                      <rank>10</rank>
+                    </item>
+                    <item id="short_name">
+                      <rank>40</rank>
+                    </item>
+                    <item id="fqdn">
+                      <rank>50</rank>
+                    </item>
+                    <item id="azureipconfig_id">
+                      <rank>60</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+        <default_search _delta="must_exist">
+          <items>
+            <item id="ip" _delta="delete"/>
+            <item id="ip_id" _delta="define">>
+              <rank>80</rank>
+            </item>
+          </items>
+        </default_search>
+      </presentation>
+    </class>
+    <class id="AzurePrivateEndpoint" _delta="must_exist">
+      <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzurePrivateEndpoint_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzurePrivateEndpoint:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzurePrivateEndpoint AS l ON l.azurenetworkinterface_id = ni.id JOIN AzurePrivateEndpoint AS pe ON l.azureprivateendpoint_id = pe.id WHERE pe.id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzurePrivateEndpoint_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzurePrivateEndpoint:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.ip_id = ip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzurePrivateEndpoint AS l ON l.azurenetworkinterface_id = ni.id JOIN AzurePrivateEndpoint AS pe ON l.azureprivateendpoint_id = pe.id WHERE pe.id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
+      </fields>
+    </class>
     <class id="AzureSubnet" _delta="must_exist">
       <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzureSubnet_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureSubnet:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id WHERE niipc.azuresubnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzureSubnet_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureSubnet:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.ip_id = ip.id WHERE niipc.azuresubnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
         <field id="ip" xsi:type="AttributeString" _delta="delete"/>
         <field id="ipsubnet_id" xsi:type="AttributeExternalKey" _delta="define">
           <sql>ipsubnet_id</sql>
@@ -59,6 +352,74 @@
           </items>
         </default_search>
       </presentation>
+    </class>
+    <class id="AzureVirtualMachine" _delta="must_exist">
+      <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzureVirtualMachine_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureCI:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id WHERE ni.azurevirtualmachine_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzureVirtualMachine_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureCI:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.ip_id = ip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id WHERE ni.azurevirtualmachine_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
+      </fields>
+    </class>
+    <class id="AzureVNet" _delta="must_exist">
+      <fields>
+        <field id="overview" _delta="must_exist">
+          <definition>
+            <dashboard>
+              <cells>
+                <cell id="20" _delta="define">
+                  <rank>20</rank>
+                  <dashlets>
+                    <dashlet id="AzureVNet_PublicIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureVNet:Overview:PublicIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzurePublicIPAddress AS pip ON pip.ip_id = ip.id JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.public_ip_id = pip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzureVNet AS l ON l.azurenetworkinterface_id = ni.id  WHERE l.azurevnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+                <cell id="30" _delta="define">
+                  <rank>30</rank>
+                  <dashlets>
+                    <dashlet id="AzureVNet_PrivateIPAddresses" xsi:type="DashletObjectList">
+                      <rank>10</rank>
+                      <title>AzureVNet:Overview:PrivateIPAddresses</title>
+                      <query>SELECT IPAddress AS ip JOIN AzureNetworkInterfaceIPConfig AS niipc ON niipc.ip_id = ip.id JOIN AzureNetworkInterface AS ni ON niipc.azurenetworkinterface_id = ni.id JOIN lnkAzureNetworkInterfaceToAzureVNet AS l ON l.azurenetworkinterface_id = ni.id  WHERE l.azurevnet_id = :this->id</query>
+                      <menu>false</menu>
+                    </dashlet>
+                  </dashlets>
+                </cell>
+              </cells>
+            </dashboard>
+          </definition>
+        </field>
+      </fields>
     </class>
     <class id="IPSubnet" _delta="must_exist">
       <fields>
