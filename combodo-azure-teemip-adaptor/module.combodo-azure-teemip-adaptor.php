@@ -17,6 +17,7 @@ SetupWebPage::AddModule(
 		//
 		'dependencies' => array(
             'combodo-azure-datamodel/2.0.0-dev',
+			'teemip-ip-mgmt/2.7.0||combodo-azure-datamodel/2.0.0-dev',	// Keep 'fake' dependency to insure compilation order is respected
 		),
 		'mandatory' => false,
 		'visible' => false,
