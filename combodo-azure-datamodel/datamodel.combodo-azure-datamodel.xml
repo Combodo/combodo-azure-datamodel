@@ -4199,8 +4199,8 @@
         <field id="primary" xsi:type="AttributeEnum">
           <sql>primary</sql>
           <values>
-            <value id="true">true</value>
-            <value id="false">false</value>
+            <value id="yes">yes</value>
+            <value id="no">no</value>
           </values>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
