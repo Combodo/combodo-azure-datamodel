@@ -74,3 +74,14 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:IPSubnet/Attribute:azuresubnet_id+' => '',
 ));
 
+//
+// IPAddress
+//
+Dict::Add('FR FR', 'French', 'Français', array(
+	'Class:IPAddress/Attribute:azureip' => 'IP Azure',
+	'Class:IPAddress/Attribute:azureip+' => 'Indique si l\'IP provient de l\'environnement Azure ou pas',
+	'Class:IPAddress/Attribute:azureip/Value:yes' => 'Oui',
+	'Class:IPAddress/Attribute:azureip/Value:no' => 'Non',
+));
+
+

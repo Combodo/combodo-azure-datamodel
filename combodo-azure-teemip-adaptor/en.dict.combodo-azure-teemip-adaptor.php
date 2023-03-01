@@ -74,3 +74,13 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:IPSubnet/Attribute:azuresubnet_id+' => '',
 ));
 
+//
+// IPAddress
+//
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:IPAddress/Attribute:azureip' => 'Azure IP',
+	'Class:IPAddress/Attribute:azureip+' => 'Indicates whether the IP comes from Microsoft Azure environment or not',
+	'Class:IPAddress/Attribute:azureip/Value:yes' => 'Yes',
+	'Class:IPAddress/Attribute:azureip/Value:no' => 'No',
+));
+
