@@ -797,10 +797,10 @@
                     <item id="move2production">
                       <rank>20</rank>
                     </item>
-                    <item id="azureid">
+                    <item id="description">
                       <rank>30</rank>
                     </item>
-                    <item id="description">
+                    <item id="azureid">
                       <rank>40</rank>
                     </item>
                   </items>
@@ -7003,6 +7003,7 @@
       <content><![CDATA[class AzureExtraMenus implements iPopupMenuExtension
 {
 	const MODULE_NAME = 'combodo-azure-datamodel';
+	const DIRECT_ACCESS = 'direct_access';
 	const AZURE_DEFAULT_MENU_ICON = 'fas fa-cloud-upload-alt';
 
 	/**
@@ -7022,7 +7023,7 @@
 					// Add URL toward Azure objects using Tenant's name
 					$sTenantName = $oObj->Get('azuretenant_name');
 					if ($sTenantName != '') {
-        				$aDirectAccessParams = MetaModel::GetModuleSetting(static::MODULE_NAME, 'direct_access', array());
+        				$aDirectAccessParams = MetaModel::GetModuleSetting(static::MODULE_NAME, static::DIRECT_ACCESS, array());
 		        		if (!empty($aDirectAccessParams)) {
 				        	if (array_key_exists('label', $aDirectAccessParams) && array_key_exists('url', $aDirectAccessParams)) {
 				                $sLabel = $aDirectAccessParams['label'];
