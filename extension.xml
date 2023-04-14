@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension format="1.0">
   <extension_code>combodo-azure-datamodel</extension_code>
-  <version>2.0.0-dev</version>
+  <version>2.0.0</version>
   <label><![CDATA[Data model for Microsoft Azure]]></label>
   <description><![CDATA[Modelization of Azure classes in iTop]]></description>
   <mandatory>false</mandatory>
