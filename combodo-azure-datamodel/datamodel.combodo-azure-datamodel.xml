@@ -966,6 +966,7 @@
             <value id="ready">ready</value>
             <value id="running">running</value>
             <value id="starting">starting</value>
+            <value id="stopped">stopped</value>
             <value id="succeeded">succeeded</value>
             <value id="terminating">terminating</value>
             <value id="updating">updating</value>
